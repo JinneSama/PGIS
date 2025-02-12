@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8B24DA99-DE24-47FC-AFCB-1306C9C6C11B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Model</RootNamespace>
+    <AssemblyName>Model</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.5.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.1\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.SqlClient, Version=4.6.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.9.0\lib\net462\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.1\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.1\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.9.0.1\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\ApplicationDbContext.cs" />
+    <Compile Include="Entities\AppUsage.cs" />
+    <Compile Include="Entities\InformationSystem.cs" />
+    <Compile Include="Entities\ISImage.cs" />
+    <Compile Include="Entities\UserAccess.cs" />
+    <Compile Include="Enum\AppAccessType.cs" />
+    <Compile Include="Enum\UserRole.cs" />
+    <Compile Include="Interface\IRepository.cs" />
+    <Compile Include="Interface\IUnitOfWork.cs" />
+    <Compile Include="Manager\OFMISManager.cs" />
+    <Compile Include="Manager\UserAppManager.cs" />
+    <Compile Include="Migrations\202502060652038_Initial-Create.cs" />
+    <Compile Include="Migrations\202502060652038_Initial-Create.Designer.cs">
+      <DependentUpon>202502060652038_Initial-Create.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502070444225_Modified-Data.cs" />
+    <Compile Include="Migrations\202502070444225_Modified-Data.Designer.cs">
+      <DependentUpon>202502070444225_Modified-Data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502070515588_Modified-Data2.cs" />
+    <Compile Include="Migrations\202502070515588_Modified-Data2.Designer.cs">
+      <DependentUpon>202502070515588_Modified-Data2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502070531163_Modified-Data3.cs" />
+    <Compile Include="Migrations\202502070531163_Modified-Data3.Designer.cs">
+      <DependentUpon>202502070531163_Modified-Data3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502070812085_Modified-Data4.cs" />
+    <Compile Include="Migrations\202502070812085_Modified-Data4.Designer.cs">
+      <DependentUpon>202502070812085_Modified-Data4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502070814048_Modified-Data5.cs" />
+    <Compile Include="Migrations\202502070814048_Modified-Data5.Designer.cs">
+      <DependentUpon>202502070814048_Modified-Data5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502100035125_UserRoles.cs" />
+    <Compile Include="Migrations\202502100035125_UserRoles.Designer.cs">
+      <DependentUpon>202502100035125_UserRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502100400125_UserRoles2.cs" />
+    <Compile Include="Migrations\202502100400125_UserRoles2.Designer.cs">
+      <DependentUpon>202502100400125_UserRoles2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502110042357_AddSolutionName.cs" />
+    <Compile Include="Migrations\202502110042357_AddSolutionName.Designer.cs">
+      <DependentUpon>202502110042357_AddSolutionName.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202502110449582_AddSolutionName2.cs" />
+    <Compile Include="Migrations\202502110449582_AddSolutionName2.Designer.cs">
+      <DependentUpon>202502110449582_AddSolutionName2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Repository.cs" />
+    <Compile Include="Repository\UnitOfWork.cs" />
+    <Compile Include="Service\Dto\ArgumentCredentialsDto.cs" />
+    <Compile Include="Service\Dto\OFMISUsersDto.cs" />
+    <Compile Include="Service\OFMISService.cs" />
+    <Compile Include="UserManager\UserStore.cs" />
+    <Compile Include="ViewModel\SystemInfoViewModel.cs" />
+    <Compile Include="ViewModel\UserAccessViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{9e655a16-3b33-42f8-9579-cdf12833016f}</Project>
+      <Name>Helpers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202502060652038_Initial-Create.resx">
+      <DependentUpon>202502060652038_Initial-Create.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502070444225_Modified-Data.resx">
+      <DependentUpon>202502070444225_Modified-Data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502070515588_Modified-Data2.resx">
+      <DependentUpon>202502070515588_Modified-Data2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502070531163_Modified-Data3.resx">
+      <DependentUpon>202502070531163_Modified-Data3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502070812085_Modified-Data4.resx">
+      <DependentUpon>202502070812085_Modified-Data4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502070814048_Modified-Data5.resx">
+      <DependentUpon>202502070814048_Modified-Data5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502100035125_UserRoles.resx">
+      <DependentUpon>202502100035125_UserRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502100400125_UserRoles2.resx">
+      <DependentUpon>202502100400125_UserRoles2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502110042357_AddSolutionName.resx">
+      <DependentUpon>202502110042357_AddSolutionName.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202502110449582_AddSolutionName2.resx">
+      <DependentUpon>202502110449582_AddSolutionName2.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.5.1\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
+</Project>

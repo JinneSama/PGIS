@@ -1,0 +1,390 @@
+﻿namespace PGISLauncher
+{
+    partial class FrmMain
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition3 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition1 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition2 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableRowDefinition tableRowDefinition3 = new DevExpress.XtraEditors.TableLayout.TableRowDefinition();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan1 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan2 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan3 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraEditors.TableLayout.TableSpan tableSpan4 = new DevExpress.XtraEditors.TableLayout.TableSpan();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            this.colImage = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.colAppName = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.colAppAbbrev = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.btnLogout = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
+            this.lblUsername = new DevExpress.XtraEditors.LabelControl();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.panelDetails = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.gcApps = new DevExpress.XtraGrid.GridControl();
+            this.tvApps = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.pnlAdminButtons = new DevExpress.XtraEditors.PanelControl();
+            this.btnDefaultApps = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAddApp = new DevExpress.XtraEditors.SimpleButton();
+            this.btnUserAccess = new DevExpress.XtraEditors.SimpleButton();
+            this.btnAppSettings = new DevExpress.XtraEditors.SimpleButton();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
+            this.panelControl1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
+            this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.panelDetails)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
+            this.panelControl3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.gcApps)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tvApps)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlAdminButtons)).BeginInit();
+            this.pnlAdminButtons.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // colImage
+            // 
+            this.colImage.FieldName = "AppImage";
+            this.colImage.Name = "colImage";
+            this.colImage.Visible = true;
+            this.colImage.VisibleIndex = 0;
+            // 
+            // colAppName
+            // 
+            this.colAppName.FieldName = "SystemInformation.AcrName";
+            this.colAppName.Name = "colAppName";
+            this.colAppName.Visible = true;
+            this.colAppName.VisibleIndex = 1;
+            // 
+            // colAppAbbrev
+            // 
+            this.colAppAbbrev.FieldName = "SystemInformation.AbbrevName";
+            this.colAppAbbrev.Name = "colAppAbbrev";
+            this.colAppAbbrev.Visible = true;
+            this.colAppAbbrev.VisibleIndex = 2;
+            // 
+            // panelControl1
+            // 
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.panelControl1.Appearance.Options.UseBackColor = true;
+            this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.panelControl1.Controls.Add(this.btnLogout);
+            this.panelControl1.Controls.Add(this.pictureEdit1);
+            this.panelControl1.Controls.Add(this.lblUsername);
+            this.panelControl1.Controls.Add(this.labelControl1);
+            this.panelControl1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelControl1.Location = new System.Drawing.Point(0, 0);
+            this.panelControl1.Name = "panelControl1";
+            this.panelControl1.Size = new System.Drawing.Size(1133, 40);
+            this.panelControl1.TabIndex = 0;
+            // 
+            // btnLogout
+            // 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLogout.Appearance.BackColor = System.Drawing.Color.Turquoise;
+            this.btnLogout.Appearance.Options.UseBackColor = true;
+            this.btnLogout.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.Image")));
+            this.btnLogout.Location = new System.Drawing.Point(1057, 3);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(64, 26);
+            this.btnLogout.TabIndex = 3;
+            this.btnLogout.Text = "Logout";
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
+            this.pictureEdit1.Location = new System.Drawing.Point(1029, 3);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
+            this.pictureEdit1.Properties.ReadOnly = true;
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Size = new System.Drawing.Size(26, 26);
+            this.pictureEdit1.TabIndex = 0;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblUsername.Appearance.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.Appearance.ForeColor = System.Drawing.Color.White;
+            this.lblUsername.Appearance.Options.UseFont = true;
+            this.lblUsername.Appearance.Options.UseForeColor = true;
+            this.lblUsername.Appearance.Options.UseTextOptions = true;
+            this.lblUsername.Appearance.TextOptions.HAlignment = DevExpress.Utils.HorzAlignment.Far;
+            this.lblUsername.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.None;
+            this.lblUsername.Location = new System.Drawing.Point(829, 9);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(195, 13);
+            this.lblUsername.TabIndex = 1;
+            // 
+            // labelControl1
+            // 
+            this.labelControl1.Appearance.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelControl1.Appearance.ForeColor = System.Drawing.Color.White;
+            this.labelControl1.Appearance.Options.UseFont = true;
+            this.labelControl1.Appearance.Options.UseForeColor = true;
+            this.labelControl1.Location = new System.Drawing.Point(12, 9);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(449, 23);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Provincial Government Information Systems Launcher";
+            // 
+            // panelControl2
+            // 
+            this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl2.Controls.Add(this.panelDetails);
+            this.panelControl2.Controls.Add(this.panelControl3);
+            this.panelControl2.Location = new System.Drawing.Point(0, 80);
+            this.panelControl2.Name = "panelControl2";
+            this.panelControl2.Size = new System.Drawing.Size(1133, 547);
+            this.panelControl2.TabIndex = 1;
+            // 
+            // panelDetails
+            // 
+            this.panelDetails.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelDetails.Location = new System.Drawing.Point(391, 2);
+            this.panelDetails.Name = "panelDetails";
+            this.panelDetails.Size = new System.Drawing.Size(740, 543);
+            this.panelDetails.TabIndex = 1;
+            // 
+            // panelControl3
+            // 
+            this.panelControl3.Controls.Add(this.gcApps);
+            this.panelControl3.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelControl3.Location = new System.Drawing.Point(2, 2);
+            this.panelControl3.Name = "panelControl3";
+            this.panelControl3.Size = new System.Drawing.Size(389, 543);
+            this.panelControl3.TabIndex = 0;
+            // 
+            // gcApps
+            // 
+            this.gcApps.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.gcApps.Location = new System.Drawing.Point(2, 2);
+            this.gcApps.MainView = this.tvApps;
+            this.gcApps.Name = "gcApps";
+            this.gcApps.Size = new System.Drawing.Size(385, 539);
+            this.gcApps.TabIndex = 1;
+            this.gcApps.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
+            this.tvApps});
+            // 
+            // tvApps
+            // 
+            this.tvApps.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.colImage,
+            this.colAppName,
+            this.colAppAbbrev});
+            this.tvApps.GridControl = this.gcApps;
+            this.tvApps.Name = "tvApps";
+            this.tvApps.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+            this.tvApps.OptionsTiles.IndentBetweenGroups = 0;
+            this.tvApps.OptionsTiles.IndentBetweenItems = 0;
+            this.tvApps.OptionsTiles.ItemSize = new System.Drawing.Size(248, 60);
+            this.tvApps.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
+            this.tvApps.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.tvApps.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
+            this.tvApps.OptionsTiles.RowCount = 0;
+            tableColumnDefinition1.Length.Value = 54D;
+            tableColumnDefinition2.Length.Value = 95D;
+            tableColumnDefinition3.Length.Value = 75D;
+            this.tvApps.TileColumns.Add(tableColumnDefinition1);
+            this.tvApps.TileColumns.Add(tableColumnDefinition2);
+            this.tvApps.TileColumns.Add(tableColumnDefinition3);
+            tableRowDefinition1.Length.Value = 8D;
+            tableRowDefinition2.Length.Value = 8D;
+            tableRowDefinition3.Length.Value = 8D;
+            this.tvApps.TileRows.Add(tableRowDefinition1);
+            this.tvApps.TileRows.Add(tableRowDefinition2);
+            this.tvApps.TileRows.Add(tableRowDefinition3);
+            tableSpan1.RowSpan = 3;
+            tableSpan2.ColumnIndex = 1;
+            tableSpan2.ColumnSpan = 2;
+            tableSpan3.ColumnIndex = 1;
+            tableSpan3.ColumnSpan = 2;
+            tableSpan3.RowIndex = 1;
+            tableSpan4.ColumnIndex = 1;
+            tableSpan4.ColumnSpan = 2;
+            tableSpan4.RowIndex = 2;
+            this.tvApps.TileSpans.Add(tableSpan1);
+            this.tvApps.TileSpans.Add(tableSpan2);
+            this.tvApps.TileSpans.Add(tableSpan3);
+            this.tvApps.TileSpans.Add(tableSpan4);
+            tileViewItemElement1.Column = this.colImage;
+            tileViewItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement1.RowIndex = 1;
+            tileViewItemElement1.Text = "colImage";
+            tileViewItemElement1.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement2.Column = this.colAppName;
+            tileViewItemElement2.ColumnIndex = 2;
+            tileViewItemElement2.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement2.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement2.Text = "colAppName";
+            tileViewItemElement2.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileViewItemElement3.Column = this.colAppAbbrev;
+            tileViewItemElement3.ColumnIndex = 2;
+            tileViewItemElement3.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement3.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement3.RowIndex = 1;
+            tileViewItemElement3.Text = "colAppAbbrev";
+            tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            this.tvApps.TileTemplate.Add(tileViewItemElement1);
+            this.tvApps.TileTemplate.Add(tileViewItemElement2);
+            this.tvApps.TileTemplate.Add(tileViewItemElement3);
+            this.tvApps.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.tvApps_FocusedRowObjectChanged);
+            // 
+            // pnlAdminButtons
+            // 
+            this.pnlAdminButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlAdminButtons.Appearance.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pnlAdminButtons.Appearance.Options.UseBackColor = true;
+            this.pnlAdminButtons.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnlAdminButtons.Controls.Add(this.btnDefaultApps);
+            this.pnlAdminButtons.Controls.Add(this.btnAddApp);
+            this.pnlAdminButtons.Controls.Add(this.btnUserAccess);
+            this.pnlAdminButtons.Controls.Add(this.btnAppSettings);
+            this.pnlAdminButtons.Location = new System.Drawing.Point(0, 40);
+            this.pnlAdminButtons.Name = "pnlAdminButtons";
+            this.pnlAdminButtons.Size = new System.Drawing.Size(1133, 40);
+            this.pnlAdminButtons.TabIndex = 2;
+            // 
+            // btnDefaultApps
+            // 
+            this.btnDefaultApps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDefaultApps.Appearance.BackColor = System.Drawing.Color.Turquoise;
+            this.btnDefaultApps.Appearance.Options.UseBackColor = true;
+            this.btnDefaultApps.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultApps.ImageOptions.Image")));
+            this.btnDefaultApps.Location = new System.Drawing.Point(663, 6);
+            this.btnDefaultApps.Name = "btnDefaultApps";
+            this.btnDefaultApps.Size = new System.Drawing.Size(110, 28);
+            this.btnDefaultApps.TabIndex = 3;
+            this.btnDefaultApps.Text = "Default Apps";
+            this.btnDefaultApps.Click += new System.EventHandler(this.btnDefaultApps_Click);
+            // 
+            // btnAddApp
+            // 
+            this.btnAddApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddApp.Appearance.BackColor = System.Drawing.Color.Turquoise;
+            this.btnAddApp.Appearance.Options.UseBackColor = true;
+            this.btnAddApp.ImageOptions.Image = global::PGISLauncher.Properties.Resources.add_16x16;
+            this.btnAddApp.Location = new System.Drawing.Point(1011, 6);
+            this.btnAddApp.Name = "btnAddApp";
+            this.btnAddApp.Size = new System.Drawing.Size(110, 28);
+            this.btnAddApp.TabIndex = 2;
+            this.btnAddApp.Text = "Add New App";
+            this.btnAddApp.Click += new System.EventHandler(this.btnAddApp_Click);
+            // 
+            // btnUserAccess
+            // 
+            this.btnUserAccess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUserAccess.Appearance.BackColor = System.Drawing.Color.Turquoise;
+            this.btnUserAccess.Appearance.Options.UseBackColor = true;
+            this.btnUserAccess.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUserAccess.ImageOptions.Image")));
+            this.btnUserAccess.Location = new System.Drawing.Point(779, 6);
+            this.btnUserAccess.Name = "btnUserAccess";
+            this.btnUserAccess.Size = new System.Drawing.Size(110, 28);
+            this.btnUserAccess.TabIndex = 1;
+            this.btnUserAccess.Text = "User Access";
+            this.btnUserAccess.Click += new System.EventHandler(this.btnUserAccess_Click);
+            // 
+            // btnAppSettings
+            // 
+            this.btnAppSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAppSettings.Appearance.BackColor = System.Drawing.Color.Turquoise;
+            this.btnAppSettings.Appearance.Options.UseBackColor = true;
+            this.btnAppSettings.ImageOptions.Image = global::PGISLauncher.Properties.Resources.properties_16x16;
+            this.btnAppSettings.Location = new System.Drawing.Point(895, 6);
+            this.btnAppSettings.Name = "btnAppSettings";
+            this.btnAppSettings.Size = new System.Drawing.Size(110, 28);
+            this.btnAppSettings.TabIndex = 0;
+            this.btnAppSettings.Text = "App Settings";
+            this.btnAppSettings.Click += new System.EventHandler(this.btnAppSettings_Click);
+            // 
+            // FrmMain
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(1133, 627);
+            this.Controls.Add(this.pnlAdminButtons);
+            this.Controls.Add(this.panelControl2);
+            this.Controls.Add(this.panelControl1);
+            this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
+            this.Load += new System.EventHandler(this.FrmMain_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
+            this.panelControl1.ResumeLayout(false);
+            this.panelControl1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
+            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.panelDetails)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
+            this.panelControl3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.gcApps)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.tvApps)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlAdminButtons)).EndInit();
+            this.pnlAdminButtons.ResumeLayout(false);
+            this.ResumeLayout(false);
+
+        }
+
+        #endregion
+
+        private DevExpress.XtraEditors.PanelControl panelControl1;
+        private DevExpress.XtraEditors.LabelControl labelControl1;
+        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.PanelControl panelControl3;
+        private DevExpress.XtraGrid.GridControl gcApps;
+        private DevExpress.XtraGrid.Views.Tile.TileView tvApps;
+        private DevExpress.XtraEditors.PanelControl panelDetails;
+        private DevExpress.XtraGrid.Columns.TileViewColumn colImage;
+        private DevExpress.XtraGrid.Columns.TileViewColumn colAppName;
+        private DevExpress.XtraGrid.Columns.TileViewColumn colAppAbbrev;
+        private DevExpress.XtraEditors.PanelControl pnlAdminButtons;
+        private DevExpress.XtraEditors.SimpleButton btnAppSettings;
+        private DevExpress.XtraEditors.SimpleButton btnUserAccess;
+        private DevExpress.XtraEditors.SimpleButton btnAddApp;
+        private DevExpress.XtraEditors.SimpleButton btnDefaultApps;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
+        private DevExpress.XtraEditors.LabelControl lblUsername;
+        private DevExpress.XtraEditors.SimpleButton btnLogout;
+    }
+}
+
