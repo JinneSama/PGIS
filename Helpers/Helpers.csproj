@@ -60,6 +60,8 @@
     <Compile Include="Interface\IInstaller.cs" />
     <Compile Include="Interface\ILauncher.cs" />
     <Compile Include="Interface\ISerializeData.cs" />
+    <Compile Include="Interface\ISingleInstance.cs" />
+    <Compile Include="Interface\IStartup.cs" />
     <Compile Include="Interface\ITokenCache.cs" />
     <Compile Include="Interface\IUCManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -77,6 +79,8 @@
     <Compile Include="Utility\Launcher.cs" />
     <Compile Include="Utility\Model\DirectoryData.cs" />
     <Compile Include="Utility\SerializeData.cs" />
+    <Compile Include="Utility\SingleInstance.cs" />
+    <Compile Include="Utility\Startup.cs" />
     <Compile Include="Utility\UCManager.cs" />
   </ItemGroup>
   <ItemGroup>

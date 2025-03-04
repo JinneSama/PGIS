@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition1 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
             DevExpress.XtraEditors.TableLayout.TableColumnDefinition tableColumnDefinition2 = new DevExpress.XtraEditors.TableLayout.TableColumnDefinition();
@@ -42,9 +43,11 @@
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement1 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement2 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement3 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
+            DevExpress.XtraGrid.Views.Tile.TileViewItemElement tileViewItemElement4 = new DevExpress.XtraGrid.Views.Tile.TileViewItemElement();
             this.colImage = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colAppName = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.colAppAbbrev = new DevExpress.XtraGrid.Columns.TileViewColumn();
+            this.colInfo = new DevExpress.XtraGrid.Columns.TileViewColumn();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.btnLogout = new DevExpress.XtraEditors.SimpleButton();
             this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
@@ -60,6 +63,15 @@
             this.btnAddApp = new DevExpress.XtraEditors.SimpleButton();
             this.btnUserAccess = new DevExpress.XtraEditors.SimpleButton();
             this.btnAppSettings = new DevExpress.XtraEditors.SimpleButton();
+            this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
+            this.notifyMenu = new DevExpress.XtraBars.PopupMenu(this.components);
+            this.btnNotifLogout = new DevExpress.XtraBars.BarButtonItem();
+            this.btnNotifExit = new DevExpress.XtraBars.BarButtonItem();
+            this.barManager = new DevExpress.XtraBars.BarManager(this.components);
+            this.barDockControlTop = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlBottom = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlLeft = new DevExpress.XtraBars.BarDockControl();
+            this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
@@ -72,6 +84,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tvApps)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlAdminButtons)).BeginInit();
             this.pnlAdminButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.notifyMenu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             this.SuspendLayout();
             // 
             // colImage
@@ -94,6 +108,13 @@
             this.colAppAbbrev.Name = "colAppAbbrev";
             this.colAppAbbrev.Visible = true;
             this.colAppAbbrev.VisibleIndex = 2;
+            // 
+            // colInfo
+            // 
+            this.colInfo.FieldName = "InstallInfo";
+            this.colInfo.Name = "colInfo";
+            this.colInfo.Visible = true;
+            this.colInfo.VisibleIndex = 3;
             // 
             // panelControl1
             // 
@@ -159,9 +180,9 @@
             this.labelControl1.Appearance.Options.UseForeColor = true;
             this.labelControl1.Location = new System.Drawing.Point(12, 9);
             this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(449, 23);
+            this.labelControl1.Size = new System.Drawing.Size(491, 23);
             this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Provincial Government Information Systems Launcher";
+            this.labelControl1.Text = "Nueva Vizcaya Provincial Government Information Systems";
             // 
             // panelControl2
             // 
@@ -208,13 +229,14 @@
             this.tvApps.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colImage,
             this.colAppName,
-            this.colAppAbbrev});
+            this.colAppAbbrev,
+            this.colInfo});
             this.tvApps.GridControl = this.gcApps;
             this.tvApps.Name = "tvApps";
             this.tvApps.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
             this.tvApps.OptionsTiles.IndentBetweenGroups = 0;
             this.tvApps.OptionsTiles.IndentBetweenItems = 0;
-            this.tvApps.OptionsTiles.ItemSize = new System.Drawing.Size(248, 60);
+            this.tvApps.OptionsTiles.ItemSize = new System.Drawing.Size(462, 60);
             this.tvApps.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
             this.tvApps.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
             this.tvApps.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
@@ -263,9 +285,21 @@
             tileViewItemElement3.RowIndex = 1;
             tileViewItemElement3.Text = "colAppAbbrev";
             tileViewItemElement3.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopLeft;
+            tileViewItemElement4.Appearance.Normal.BackColor = System.Drawing.Color.Firebrick;
+            tileViewItemElement4.Appearance.Normal.ForeColor = System.Drawing.Color.White;
+            tileViewItemElement4.Appearance.Normal.Options.UseBackColor = true;
+            tileViewItemElement4.Appearance.Normal.Options.UseForeColor = true;
+            tileViewItemElement4.Column = this.colInfo;
+            tileViewItemElement4.ColumnIndex = 2;
+            tileViewItemElement4.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
+            tileViewItemElement4.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
+            tileViewItemElement4.RowIndex = 2;
+            tileViewItemElement4.Text = "colInfo";
+            tileViewItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
             this.tvApps.TileTemplate.Add(tileViewItemElement1);
             this.tvApps.TileTemplate.Add(tileViewItemElement2);
             this.tvApps.TileTemplate.Add(tileViewItemElement3);
+            this.tvApps.TileTemplate.Add(tileViewItemElement4);
             this.tvApps.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.tvApps_FocusedRowObjectChanged);
             // 
             // pnlAdminButtons
@@ -336,6 +370,83 @@
             this.btnAppSettings.Text = "App Settings";
             this.btnAppSettings.Click += new System.EventHandler(this.btnAppSettings_Click);
             // 
+            // notifyIcon
+            // 
+            this.notifyIcon.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon.Icon")));
+            this.notifyIcon.Text = "NVPGIS Launcher";
+            this.notifyIcon.Visible = true;
+            this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(this.notifyIcon_MouseClick);
+            // 
+            // notifyMenu
+            // 
+            this.notifyMenu.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnNotifLogout),
+            new DevExpress.XtraBars.LinkPersistInfo(this.btnNotifExit)});
+            this.notifyMenu.Manager = this.barManager;
+            this.notifyMenu.Name = "notifyMenu";
+            // 
+            // btnNotifLogout
+            // 
+            this.btnNotifLogout.Caption = "Logout";
+            this.btnNotifLogout.Id = 0;
+            this.btnNotifLogout.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNotifLogout.ImageOptions.Image")));
+            this.btnNotifLogout.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNotifLogout.ImageOptions.LargeImage")));
+            this.btnNotifLogout.Name = "btnNotifLogout";
+            this.btnNotifLogout.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNotifLogout_ItemClick);
+            // 
+            // btnNotifExit
+            // 
+            this.btnNotifExit.Caption = "Exit";
+            this.btnNotifExit.Id = 1;
+            this.btnNotifExit.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnNotifExit.ImageOptions.Image")));
+            this.btnNotifExit.ImageOptions.LargeImage = ((System.Drawing.Image)(resources.GetObject("btnNotifExit.ImageOptions.LargeImage")));
+            this.btnNotifExit.Name = "btnNotifExit";
+            this.btnNotifExit.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNotifExit_ItemClick);
+            // 
+            // barManager
+            // 
+            this.barManager.DockControls.Add(this.barDockControlTop);
+            this.barManager.DockControls.Add(this.barDockControlBottom);
+            this.barManager.DockControls.Add(this.barDockControlLeft);
+            this.barManager.DockControls.Add(this.barDockControlRight);
+            this.barManager.Form = this;
+            this.barManager.Items.AddRange(new DevExpress.XtraBars.BarItem[] {
+            this.btnNotifLogout,
+            this.btnNotifExit});
+            this.barManager.MaxItemId = 2;
+            // 
+            // barDockControlTop
+            // 
+            this.barDockControlTop.CausesValidation = false;
+            this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
+            this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlTop.Manager = this.barManager;
+            this.barDockControlTop.Size = new System.Drawing.Size(1133, 0);
+            // 
+            // barDockControlBottom
+            // 
+            this.barDockControlBottom.CausesValidation = false;
+            this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.barDockControlBottom.Location = new System.Drawing.Point(0, 627);
+            this.barDockControlBottom.Manager = this.barManager;
+            this.barDockControlBottom.Size = new System.Drawing.Size(1133, 0);
+            // 
+            // barDockControlLeft
+            // 
+            this.barDockControlLeft.CausesValidation = false;
+            this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 0);
+            this.barDockControlLeft.Manager = this.barManager;
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 627);
+            // 
+            // barDockControlRight
+            // 
+            this.barDockControlRight.CausesValidation = false;
+            this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
+            this.barDockControlRight.Location = new System.Drawing.Point(1133, 0);
+            this.barDockControlRight.Manager = this.barManager;
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 627);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -344,6 +455,11 @@
             this.Controls.Add(this.pnlAdminButtons);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
+            this.Controls.Add(this.barDockControlLeft);
+            this.Controls.Add(this.barDockControlRight);
+            this.Controls.Add(this.barDockControlBottom);
+            this.Controls.Add(this.barDockControlTop);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FrmMain.IconOptions.Icon")));
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
@@ -361,7 +477,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.tvApps)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlAdminButtons)).EndInit();
             this.pnlAdminButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.notifyMenu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -385,6 +504,16 @@
         private DevExpress.XtraEditors.PictureEdit pictureEdit1;
         private DevExpress.XtraEditors.LabelControl lblUsername;
         private DevExpress.XtraEditors.SimpleButton btnLogout;
+        private DevExpress.XtraGrid.Columns.TileViewColumn colInfo;
+        private System.Windows.Forms.NotifyIcon notifyIcon;
+        private DevExpress.XtraBars.PopupMenu notifyMenu;
+        private DevExpress.XtraBars.BarButtonItem btnNotifLogout;
+        private DevExpress.XtraBars.BarButtonItem btnNotifExit;
+        private DevExpress.XtraBars.BarManager barManager;
+        private DevExpress.XtraBars.BarDockControl barDockControlTop;
+        private DevExpress.XtraBars.BarDockControl barDockControlBottom;
+        private DevExpress.XtraBars.BarDockControl barDockControlLeft;
+        private DevExpress.XtraBars.BarDockControl barDockControlRight;
     }
 }
 

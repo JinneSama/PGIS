@@ -9,5 +9,6 @@ namespace Model.ViewModel
     {
         public InformationSystem SystemInformation { get; set; }
         public Image AppImage { get; set; }
+        public string InstallInfo { get; set; }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAppSettings));
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
@@ -140,19 +141,19 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(11, 232);
+            this.labelControl8.Location = new System.Drawing.Point(13, 232);
             this.labelControl8.Name = "labelControl8";
-            this.labelControl8.Size = new System.Drawing.Size(69, 13);
+            this.labelControl8.Size = new System.Drawing.Size(53, 13);
             this.labelControl8.TabIndex = 18;
-            this.labelControl8.Text = "Download URL";
+            this.labelControl8.Text = "Description";
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(13, 211);
+            this.labelControl9.Location = new System.Drawing.Point(13, 189);
             this.labelControl9.Name = "labelControl9";
-            this.labelControl9.Size = new System.Drawing.Size(53, 13);
+            this.labelControl9.Size = new System.Drawing.Size(68, 13);
             this.labelControl9.TabIndex = 26;
-            this.labelControl9.Text = "Description";
+            this.labelControl9.Text = "Solution Name";
             // 
             // btnSave
             // 
@@ -262,7 +263,7 @@
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(13, 189);
+            this.labelControl10.Location = new System.Drawing.Point(13, 211);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(69, 13);
             this.labelControl10.TabIndex = 30;
@@ -295,6 +296,7 @@
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.txtDescription);
             this.Controls.Add(this.deDatePublished);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FrmAppSettings.IconOptions.Icon")));
             this.Name = "FrmAppSettings";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FrmAppSettings_Load);

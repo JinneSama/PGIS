@@ -12,10 +12,12 @@ namespace Helpers.Utility
         private PanelControl _panelDetails;
         private List<string> _history = new List<string>();
         private int _historyIndex = -1;
+        private readonly Control _parentControl;
 
         public UCManager(PanelControl panelDetails)
         {
             _panelDetails = panelDetails;
+            _parentControl = _panelDetails.Parent.Parent;
         }
 
         public void ShowUCSystemDetails(string key, object rowData)
@@ -24,7 +26,7 @@ namespace Helpers.Utility
 
             if (!_ucSystemDetailsCache.TryGetValue(key, out control))
             {
-                control = (TControl)Activator.CreateInstance(typeof(TControl), rowData);
+                control = (TControl)Activator.CreateInstance(typeof(TControl), rowData, _parentControl);
                 control.Dock = DockStyle.Fill;
                 _ucSystemDetailsCache[key] = control;
             }

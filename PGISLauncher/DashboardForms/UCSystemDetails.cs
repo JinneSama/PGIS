@@ -17,25 +17,27 @@ using Model.Enum;
 using Model.Interface;
 using Model.Repository;
 using Model.UserManager;
+using System.Windows.Forms;
 
 namespace PGISLauncher.DashboardForms
 {
-    public partial class UCSystemDetails : XtraUserControl, ILauncher, ISerializeData
+    public partial class UCSystemDetails : XtraUserControl, ILauncher
     {
         private readonly IInstaller _installerHandler;
         private readonly ILauncher _launcherHandler;
-        private readonly ISerializeData _serializeDataHandler;
         private readonly SystemInfoViewModel _systemInformation;
         private FileService _fileService;
         private DirectoryData _directoryData;
-        public UCSystemDetails(SystemInfoViewModel systemInformation)
+        private readonly Control _frmMain;
+
+        public UCSystemDetails(SystemInfoViewModel systemInformation, Control frmMain)
         {
             InitializeComponent();
             _installerHandler = new Installer(DownloadFileCompleted, DownloadProgressChanged);
-            _launcherHandler = new Launcher(UpdateStatus);
-            _serializeDataHandler = new SerializeData();    
+            _launcherHandler = new Launcher(UpdateStatus, UpdateUninstallStatus);
             _systemInformation = systemInformation;
             _fileService = new FileService(); 
+            _frmMain = frmMain;
         }
 
         private async Task LoadData()
@@ -57,11 +59,18 @@ namespace PGISLauncher.DashboardForms
 
             if (condition)
             {
-                lblAppStatus.Text = "Not Installed";
+                lblAppStatus.Text = "NOT INSTALLED";
                 lblAppStatus.BackColor = Color.Red;
                 lblAppStatus.ForeColor = Color.White;
+                btnUninstall.Enabled = !condition;
             }
-            else lblAppStatus.Text = "Installed";
+            else
+            {
+                lblAppStatus.BackColor = Color.Transparent;
+                lblAppStatus.ForeColor = Color.Black;
+                lblAppStatus.Text = "Installed";
+                btnUninstall.Enabled = !condition;
+            }
         }
         public async Task Install(string AppURL)
         {
@@ -94,13 +103,11 @@ namespace PGISLauncher.DashboardForms
         {
             await Install(_systemInformation.SystemInformation.DownloadURL);
             await WaitForInstallAsync(_systemInformation.SystemInformation.PublisherName, _systemInformation.SystemInformation.ProductName);
+            RefreshMainFormData();
         }
 
         private async void btnOpen_Click(object sender, EventArgs e)
         {
-            string filePath = Path.Combine(Path.GetTempPath(), "credentials.json");
-            string json = Serialize(Model.UserManager.UserStore.Credentials);
-            File.WriteAllText(filePath, json);
             await RecordAppUsage(AppAccessType.Opened);
             Process.Start(_directoryData.AppPath);
             await TrackStatus(_systemInformation.SystemInformation.SolutionName);
@@ -110,11 +117,6 @@ namespace PGISLauncher.DashboardForms
         {
             await _launcherHandler.WaitForInstallAsync(publisherName, productName);
             await LoadData();
-        }
-
-        public string Serialize(object data)
-        {
-            return _serializeDataHandler.Serialize(data);
         }
 
         private async void UCSystemDetails_Load(object sender, EventArgs e)
@@ -155,6 +157,37 @@ namespace PGISLauncher.DashboardForms
         public async Task TrackStatus(string processName)
         {
             await _launcherHandler.TrackStatus(processName);
+        }
+
+        private async void btnUninstall_Click(object sender, EventArgs e)
+        {
+            var msgRes = MessageBox.Show("Proceed to Uninstall?", "Confirmation", MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (msgRes == DialogResult.OK)
+            {
+                _installerHandler.UnInstall(_systemInformation.SystemInformation.AcrName);
+                await WaitForUnInstallAsync(_systemInformation.SystemInformation.PublisherName, _systemInformation.SystemInformation.ProductName);
+            }
+            await LoadData();
+        }
+
+        public async Task WaitForUnInstallAsync(string publisherName, string productName)
+        {
+            await _launcherHandler.WaitForUnInstallAsync(publisherName, productName);
+        }
+
+        public void UpdateUninstallStatus(bool status)
+        {
+            if (this.InvokeRequired)
+                this.BeginInvoke(new Action(() =>
+                {
+                    RefreshMainFormData();
+                    SetDownLoadInstall(status);
+                }));
+        }
+
+        private async void RefreshMainFormData()
+        {
+            await ((FrmMain)_frmMain).LoadData();
         }
     }
 }

@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System.Diagnostics;
 using Helpers.Enum;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Helpers.Utility
 {
@@ -14,12 +15,18 @@ namespace Helpers.Utility
     {
         private CancellationTokenSource cts; 
         private Action<ProcessStatus> _statusUpdateCallback;
+        private Action<bool> _uninstallStatusCallBack;
 
-        public Launcher(Action<ProcessStatus> statusUpdateCallback = null)
+        public Launcher(Action<ProcessStatus> statusUpdateCallback = null, Action<bool> uninstallStatusCallBack = null)
         {
             _statusUpdateCallback = statusUpdateCallback;
+            _uninstallStatusCallBack = uninstallStatusCallBack;
         }
 
+        public void UpdateUninstallStatus(bool status)
+        {
+            _uninstallStatusCallBack.Invoke(status);
+        }
         public void UpdateStatus(ProcessStatus status)
         {
             _statusUpdateCallback?.Invoke(status);
@@ -83,6 +90,7 @@ namespace Helpers.Utility
                 {
                     if (IsShortcutPresentAsync(publisherName, productName) != null)
                     {
+                        UpdateUninstallStatus(true);
                         isInstalled = true;
                         installCompletion.SetResult(true);
                     }
@@ -90,6 +98,26 @@ namespace Helpers.Utility
                 }
             });
             await installCompletion.Task;
+        }
+
+        public async Task WaitForUnInstallAsync(string publisherName, string productName)
+        {
+            bool isUnInstalled = false;
+            var uninstallCompletion = new TaskCompletionSource<bool>();
+            await Task.Run(async () =>
+            {
+                while (!isUnInstalled)
+                {
+                    if (IsShortcutPresentAsync(publisherName, productName) == null)
+                    {
+                        UpdateUninstallStatus(false);
+                        isUnInstalled = true;
+                        uninstallCompletion.SetResult(true);
+                    }
+                    await Task.Delay(1000);
+                }
+            });
+            await uninstallCompletion.Task;
         }
     }
 }

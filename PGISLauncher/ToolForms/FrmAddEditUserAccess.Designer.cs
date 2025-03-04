@@ -231,6 +231,7 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.panelControl1);
+            this.IconOptions.Icon = ((System.Drawing.Icon)(resources.GetObject("FrmAddEditUserAccess.IconOptions.Icon")));
             this.Name = "FrmAddEditUserAccess";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

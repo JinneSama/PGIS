@@ -5,6 +5,8 @@ using System.Diagnostics;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Helpers.Interface;
+using Microsoft.Win32;
+using System.Windows.Forms;
 
 namespace Helpers.Utility
 {
@@ -39,6 +41,39 @@ namespace Helpers.Utility
         public void DownloadProgressChanged(object s, DownloadProgressChangedEventArgs e)
         {
             _downloadProgressChangedCallBack?.Invoke(s, e);
+        }
+
+        public void UnInstall(string appName)
+        {
+            string registryRoot = @"SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall";
+            using (RegistryKey key = Registry.CurrentUser.OpenSubKey(registryRoot))
+            {
+                if (key == null) return;
+                foreach (string subKeyName in key.GetSubKeyNames())
+                {
+                    using (RegistryKey subKey = key.OpenSubKey(subKeyName))
+                    {
+                        if (subKey == null) continue;
+
+                        object displayName = subKey.GetValue("DisplayName");
+                        object uninstallString = subKey.GetValue("UninstallString");
+
+                        if (displayName != null && uninstallString != null && displayName.ToString().Contains(appName))
+                        {
+                            string uninstallCmd = uninstallString.ToString();
+
+                            Process.Start(new ProcessStartInfo
+                            {
+                                FileName = "cmd.exe",
+                                Arguments = $"/c {uninstallCmd}",
+                                UseShellExecute = false,
+                                CreateNoWindow = true
+                            });
+                            return;
+                        }
+                    }
+                }
+            }
         }
     }
 }

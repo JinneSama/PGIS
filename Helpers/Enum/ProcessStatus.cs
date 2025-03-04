@@ -4,15 +4,15 @@ namespace Helpers.Enum
 {
     public enum ProcessStatus
     {
-        [Description("Open")]
+        [Description("OPEN")]
         Open = 0,
-        [Description("Running")]
+        [Description("RUNNING")]
         Running = 1,
-        [Description("Open")]
+        [Description("OPEN")]
         Closed = 2,
-        [Description("Task Cancelled")]
+        [Description("TASK CANCELLED")]
         Cancelled = 3,
-        [Description("Launching")]
+        [Description("LAUNCHING")]
         Launching = 4
     }
 }

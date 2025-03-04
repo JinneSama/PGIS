@@ -45,8 +45,10 @@
             this.labelControl15 = new DevExpress.XtraEditors.LabelControl();
             this.lblDescription = new DevExpress.XtraEditors.LabelControl();
             this.progressPanel = new DevExpress.XtraEditors.PanelControl();
-            this.progressBarControl = new DevExpress.XtraEditors.ProgressBarControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
+            this.progressBarControl = new DevExpress.XtraEditors.ProgressBarControl();
+            this.btnUninstall = new DevExpress.XtraEditors.SimpleButton();
+            this.btnDocs = new DevExpress.XtraEditors.SimpleButton();
             ((System.ComponentModel.ISupportInitialize)(this.picImage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressPanel)).BeginInit();
             this.progressPanel.SuspendLayout();
@@ -174,7 +176,7 @@
             // 
             // labelControl15
             // 
-            this.labelControl15.Location = new System.Drawing.Point(18, 197);
+            this.labelControl15.Location = new System.Drawing.Point(18, 218);
             this.labelControl15.Name = "labelControl15";
             this.labelControl15.Size = new System.Drawing.Size(53, 13);
             this.labelControl15.TabIndex = 18;
@@ -187,7 +189,7 @@
             this.lblDescription.Appearance.Options.UseTextOptions = true;
             this.lblDescription.Appearance.TextOptions.VAlignment = DevExpress.Utils.VertAlignment.Top;
             this.lblDescription.AutoSizeMode = DevExpress.XtraEditors.LabelAutoSizeMode.Vertical;
-            this.lblDescription.Location = new System.Drawing.Point(18, 216);
+            this.lblDescription.Location = new System.Drawing.Point(18, 237);
             this.lblDescription.Name = "lblDescription";
             this.lblDescription.Size = new System.Drawing.Size(831, 65);
             this.lblDescription.TabIndex = 19;
@@ -198,19 +200,11 @@
             this.progressPanel.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.progressPanel.Controls.Add(this.labelControl8);
             this.progressPanel.Controls.Add(this.progressBarControl);
-            this.progressPanel.Location = new System.Drawing.Point(214, 148);
+            this.progressPanel.Location = new System.Drawing.Point(214, 119);
             this.progressPanel.Name = "progressPanel";
             this.progressPanel.Size = new System.Drawing.Size(298, 35);
             this.progressPanel.TabIndex = 20;
             this.progressPanel.Visible = false;
-            // 
-            // progressBarControl
-            // 
-            this.progressBarControl.Location = new System.Drawing.Point(-1, 17);
-            this.progressBarControl.Name = "progressBarControl";
-            this.progressBarControl.Properties.ShowTitle = true;
-            this.progressBarControl.Size = new System.Drawing.Size(299, 18);
-            this.progressBarControl.TabIndex = 0;
             // 
             // labelControl8
             // 
@@ -220,10 +214,51 @@
             this.labelControl8.TabIndex = 1;
             this.labelControl8.Text = "Downloading";
             // 
+            // progressBarControl
+            // 
+            this.progressBarControl.Location = new System.Drawing.Point(-1, 17);
+            this.progressBarControl.Name = "progressBarControl";
+            this.progressBarControl.Properties.ShowTitle = true;
+            this.progressBarControl.Size = new System.Drawing.Size(299, 18);
+            this.progressBarControl.TabIndex = 0;
+            // 
+            // btnUninstall
+            // 
+            this.btnUninstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUninstall.Appearance.BackColor = System.Drawing.Color.Tomato;
+            this.btnUninstall.Appearance.Options.UseBackColor = true;
+            this.btnUninstall.AppearanceDisabled.BackColor = System.Drawing.Color.Gray;
+            this.btnUninstall.AppearanceDisabled.BackColor2 = System.Drawing.Color.Gray;
+            this.btnUninstall.AppearanceDisabled.Options.UseBackColor = true;
+            this.btnUninstall.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUninstall.ImageOptions.Image")));
+            this.btnUninstall.Location = new System.Drawing.Point(769, 501);
+            this.btnUninstall.Name = "btnUninstall";
+            this.btnUninstall.Size = new System.Drawing.Size(80, 23);
+            this.btnUninstall.TabIndex = 21;
+            this.btnUninstall.Text = "UNINSTALL";
+            this.btnUninstall.Click += new System.EventHandler(this.btnUninstall_Click);
+            // 
+            // btnDocs
+            // 
+            this.btnDocs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDocs.Appearance.BackColor = System.Drawing.Color.Lime;
+            this.btnDocs.Appearance.Options.UseBackColor = true;
+            this.btnDocs.AppearanceDisabled.BackColor = System.Drawing.Color.Gray;
+            this.btnDocs.AppearanceDisabled.BackColor2 = System.Drawing.Color.Gray;
+            this.btnDocs.AppearanceDisabled.Options.UseBackColor = true;
+            this.btnDocs.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDocs.ImageOptions.Image")));
+            this.btnDocs.Location = new System.Drawing.Point(683, 501);
+            this.btnDocs.Name = "btnDocs";
+            this.btnDocs.Size = new System.Drawing.Size(80, 23);
+            this.btnDocs.TabIndex = 22;
+            this.btnDocs.Text = "DOCS";
+            // 
             // UCSystemDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnDocs);
+            this.Controls.Add(this.btnUninstall);
             this.Controls.Add(this.progressPanel);
             this.Controls.Add(this.lblDescription);
             this.Controls.Add(this.labelControl15);
@@ -235,11 +270,11 @@
             this.Controls.Add(this.labelControl7);
             this.Controls.Add(this.labelControl4);
             this.Controls.Add(this.labelControl3);
-            this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.labelControl2);
             this.Controls.Add(this.labelControl1);
-            this.Controls.Add(this.btnInstall);
             this.Controls.Add(this.picImage);
+            this.Controls.Add(this.btnOpen);
+            this.Controls.Add(this.btnInstall);
             this.Name = "UCSystemDetails";
             this.Size = new System.Drawing.Size(869, 540);
             this.Load += new System.EventHandler(this.UCSystemDetails_Load);
@@ -273,5 +308,7 @@
         private DevExpress.XtraEditors.PanelControl progressPanel;
         private DevExpress.XtraEditors.LabelControl labelControl8;
         private DevExpress.XtraEditors.ProgressBarControl progressBarControl;
+        private DevExpress.XtraEditors.SimpleButton btnUninstall;
+        private DevExpress.XtraEditors.SimpleButton btnDocs;
     }
 }
