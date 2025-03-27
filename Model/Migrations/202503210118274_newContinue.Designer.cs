@@ -7,13 +7,13 @@ namespace Model.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class AddSolutionName2 : IMigrationMetadata
+    public sealed partial class newContinue : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(AddSolutionName2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(newContinue));
         
         string IMigrationMetadata.Id
         {
-            get { return "202502110449582_AddSolutionName2"; }
+            get { return "202503210118274_newContinue"; }
         }
         
         string IMigrationMetadata.Source

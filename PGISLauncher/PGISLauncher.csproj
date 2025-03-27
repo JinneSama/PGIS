@@ -29,7 +29,7 @@
     <SuiteName>PGIS</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.htm</WebPage>
-    <ApplicationRevision>32</ApplicationRevision>
+    <ApplicationRevision>34</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -361,6 +361,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="PGNV_ico.ico" />
+    <None Include="Resources\47d0e318-6640-4a32-ab8b-2a5e149c2051.jfif" />
+    <None Include="Resources\33bb69c3-6a50-41fc-bbb8-a56a207c5c19.jfif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

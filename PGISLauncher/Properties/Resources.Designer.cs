@@ -63,6 +63,26 @@ namespace PGISLauncher.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap _33bb69c3_6a50_41fc_bbb8_a56a207c5c19 {
+            get {
+                object obj = ResourceManager.GetObject("33bb69c3-6a50-41fc-bbb8-a56a207c5c19", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _47d0e318_6640_4a32_ab8b_2a5e149c2051 {
+            get {
+                object obj = ResourceManager.GetObject("47d0e318-6640-4a32-ab8b-2a5e149c2051", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap add_16x16 {
             get {
                 object obj = ResourceManager.GetObject("add_16x16", resourceCulture);

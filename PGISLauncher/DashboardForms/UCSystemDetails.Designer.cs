@@ -31,9 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UCSystemDetails));
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.btnOpen = new DevExpress.XtraEditors.SimpleButton();
-            this.btnInstall = new DevExpress.XtraEditors.SimpleButton();
-            this.picImage = new DevExpress.XtraEditors.PictureEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl4 = new DevExpress.XtraEditors.LabelControl();
             this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
@@ -47,16 +44,23 @@
             this.progressPanel = new DevExpress.XtraEditors.PanelControl();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.progressBarControl = new DevExpress.XtraEditors.ProgressBarControl();
-            this.btnUninstall = new DevExpress.XtraEditors.SimpleButton();
             this.btnDocs = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.picImage.Properties)).BeginInit();
+            this.btnUninstall = new DevExpress.XtraEditors.SimpleButton();
+            this.picImage = new DevExpress.XtraEditors.PictureEdit();
+            this.btnOpen = new DevExpress.XtraEditors.SimpleButton();
+            this.btnInstall = new DevExpress.XtraEditors.SimpleButton();
+            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.progressPanel)).BeginInit();
             this.progressPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
             // 
+            this.labelControl1.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl1.Appearance.Options.UseBackColor = true;
             this.labelControl1.Location = new System.Drawing.Point(214, 15);
             this.labelControl1.Name = "labelControl1";
             this.labelControl1.Size = new System.Drawing.Size(49, 13);
@@ -65,53 +69,18 @@
             // 
             // labelControl2
             // 
+            this.labelControl2.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl2.Appearance.Options.UseBackColor = true;
             this.labelControl2.Location = new System.Drawing.Point(214, 34);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(64, 13);
             this.labelControl2.TabIndex = 3;
             this.labelControl2.Text = "App Acronym";
             // 
-            // btnOpen
-            // 
-            this.btnOpen.Appearance.BackColor = System.Drawing.Color.Lime;
-            this.btnOpen.Appearance.Options.UseBackColor = true;
-            this.btnOpen.AppearanceDisabled.BackColor = System.Drawing.Color.Gray;
-            this.btnOpen.AppearanceDisabled.BackColor2 = System.Drawing.Color.Gray;
-            this.btnOpen.AppearanceDisabled.Options.UseBackColor = true;
-            this.btnOpen.ImageOptions.Image = global::PGISLauncher.Properties.Resources.next_16x16;
-            this.btnOpen.Location = new System.Drawing.Point(18, 160);
-            this.btnOpen.Name = "btnOpen";
-            this.btnOpen.Size = new System.Drawing.Size(151, 23);
-            this.btnOpen.TabIndex = 4;
-            this.btnOpen.Text = "OPEN";
-            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
-            // 
-            // btnInstall
-            // 
-            this.btnInstall.Appearance.BackColor = System.Drawing.Color.Turquoise;
-            this.btnInstall.Appearance.Options.UseBackColor = true;
-            this.btnInstall.AppearanceDisabled.BackColor = System.Drawing.Color.Gray;
-            this.btnInstall.AppearanceDisabled.BackColor2 = System.Drawing.Color.Gray;
-            this.btnInstall.AppearanceDisabled.Options.UseBackColor = true;
-            this.btnInstall.ImageOptions.Image = global::PGISLauncher.Properties.Resources.download_16x16;
-            this.btnInstall.Location = new System.Drawing.Point(18, 160);
-            this.btnInstall.Name = "btnInstall";
-            this.btnInstall.Size = new System.Drawing.Size(151, 23);
-            this.btnInstall.TabIndex = 1;
-            this.btnInstall.Text = "INSTALL";
-            this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
-            // 
-            // picImage
-            // 
-            this.picImage.Location = new System.Drawing.Point(18, 15);
-            this.picImage.Name = "picImage";
-            this.picImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.picImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.picImage.Size = new System.Drawing.Size(151, 139);
-            this.picImage.TabIndex = 0;
-            // 
             // labelControl3
             // 
+            this.labelControl3.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl3.Appearance.Options.UseBackColor = true;
             this.labelControl3.Location = new System.Drawing.Point(214, 72);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(43, 13);
@@ -120,6 +89,8 @@
             // 
             // labelControl4
             // 
+            this.labelControl4.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl4.Appearance.Options.UseBackColor = true;
             this.labelControl4.Location = new System.Drawing.Point(214, 91);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(99, 13);
@@ -128,6 +99,8 @@
             // 
             // labelControl7
             // 
+            this.labelControl7.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.labelControl7.Appearance.Options.UseBackColor = true;
             this.labelControl7.Location = new System.Drawing.Point(214, 53);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(53, 13);
@@ -136,6 +109,8 @@
             // 
             // lblAppStatus
             // 
+            this.lblAppStatus.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.lblAppStatus.Appearance.Options.UseBackColor = true;
             this.lblAppStatus.Location = new System.Drawing.Point(350, 53);
             this.lblAppStatus.Name = "lblAppStatus";
             this.lblAppStatus.Size = new System.Drawing.Size(53, 13);
@@ -144,6 +119,8 @@
             // 
             // lblCreator
             // 
+            this.lblCreator.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.lblCreator.Appearance.Options.UseBackColor = true;
             this.lblCreator.Location = new System.Drawing.Point(350, 91);
             this.lblCreator.Name = "lblCreator";
             this.lblCreator.Size = new System.Drawing.Size(99, 13);
@@ -152,6 +129,8 @@
             // 
             // lblPublisherName
             // 
+            this.lblPublisherName.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.lblPublisherName.Appearance.Options.UseBackColor = true;
             this.lblPublisherName.Location = new System.Drawing.Point(350, 72);
             this.lblPublisherName.Name = "lblPublisherName";
             this.lblPublisherName.Size = new System.Drawing.Size(43, 13);
@@ -160,6 +139,8 @@
             // 
             // lblAcrName
             // 
+            this.lblAcrName.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.lblAcrName.Appearance.Options.UseBackColor = true;
             this.lblAcrName.Location = new System.Drawing.Point(350, 34);
             this.lblAcrName.Name = "lblAcrName";
             this.lblAcrName.Size = new System.Drawing.Size(64, 13);
@@ -168,6 +149,8 @@
             // 
             // lblAbbrevName
             // 
+            this.lblAbbrevName.Appearance.BackColor = System.Drawing.Color.Transparent;
+            this.lblAbbrevName.Appearance.Options.UseBackColor = true;
             this.lblAbbrevName.Location = new System.Drawing.Point(350, 15);
             this.lblAbbrevName.Name = "lblAbbrevName";
             this.lblAbbrevName.Size = new System.Drawing.Size(49, 13);
@@ -222,6 +205,21 @@
             this.progressBarControl.Size = new System.Drawing.Size(299, 18);
             this.progressBarControl.TabIndex = 0;
             // 
+            // btnDocs
+            // 
+            this.btnDocs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDocs.Appearance.BackColor = System.Drawing.Color.Lime;
+            this.btnDocs.Appearance.Options.UseBackColor = true;
+            this.btnDocs.AppearanceDisabled.BackColor = System.Drawing.Color.Gray;
+            this.btnDocs.AppearanceDisabled.BackColor2 = System.Drawing.Color.Gray;
+            this.btnDocs.AppearanceDisabled.Options.UseBackColor = true;
+            this.btnDocs.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDocs.ImageOptions.Image")));
+            this.btnDocs.Location = new System.Drawing.Point(683, 501);
+            this.btnDocs.Name = "btnDocs";
+            this.btnDocs.Size = new System.Drawing.Size(80, 23);
+            this.btnDocs.TabIndex = 22;
+            this.btnDocs.Text = "DOCS";
+            // 
             // btnUninstall
             // 
             this.btnUninstall.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -238,20 +236,58 @@
             this.btnUninstall.Text = "UNINSTALL";
             this.btnUninstall.Click += new System.EventHandler(this.btnUninstall_Click);
             // 
-            // btnDocs
+            // picImage
             // 
-            this.btnDocs.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDocs.Appearance.BackColor = System.Drawing.Color.Lime;
-            this.btnDocs.Appearance.Options.UseBackColor = true;
-            this.btnDocs.AppearanceDisabled.BackColor = System.Drawing.Color.Gray;
-            this.btnDocs.AppearanceDisabled.BackColor2 = System.Drawing.Color.Gray;
-            this.btnDocs.AppearanceDisabled.Options.UseBackColor = true;
-            this.btnDocs.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDocs.ImageOptions.Image")));
-            this.btnDocs.Location = new System.Drawing.Point(683, 501);
-            this.btnDocs.Name = "btnDocs";
-            this.btnDocs.Size = new System.Drawing.Size(80, 23);
-            this.btnDocs.TabIndex = 22;
-            this.btnDocs.Text = "DOCS";
+            this.picImage.EditValue = global::PGISLauncher.Properties.Resources.PGNV;
+            this.picImage.Location = new System.Drawing.Point(18, 15);
+            this.picImage.Name = "picImage";
+            this.picImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.picImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.picImage.Size = new System.Drawing.Size(151, 139);
+            this.picImage.TabIndex = 0;
+            // 
+            // btnOpen
+            // 
+            this.btnOpen.Appearance.BackColor = System.Drawing.Color.Lime;
+            this.btnOpen.Appearance.Options.UseBackColor = true;
+            this.btnOpen.AppearanceDisabled.BackColor = System.Drawing.Color.Gray;
+            this.btnOpen.AppearanceDisabled.BackColor2 = System.Drawing.Color.Gray;
+            this.btnOpen.AppearanceDisabled.Options.UseBackColor = true;
+            this.btnOpen.ImageOptions.Image = global::PGISLauncher.Properties.Resources.next_16x16;
+            this.btnOpen.Location = new System.Drawing.Point(18, 160);
+            this.btnOpen.Name = "btnOpen";
+            this.btnOpen.Size = new System.Drawing.Size(151, 23);
+            this.btnOpen.TabIndex = 4;
+            this.btnOpen.Text = "OPEN";
+            this.btnOpen.Click += new System.EventHandler(this.btnOpen_Click);
+            // 
+            // btnInstall
+            // 
+            this.btnInstall.Appearance.BackColor = System.Drawing.Color.Turquoise;
+            this.btnInstall.Appearance.Options.UseBackColor = true;
+            this.btnInstall.AppearanceDisabled.BackColor = System.Drawing.Color.Gray;
+            this.btnInstall.AppearanceDisabled.BackColor2 = System.Drawing.Color.Gray;
+            this.btnInstall.AppearanceDisabled.Options.UseBackColor = true;
+            this.btnInstall.ImageOptions.Image = global::PGISLauncher.Properties.Resources.download_16x16;
+            this.btnInstall.Location = new System.Drawing.Point(18, 160);
+            this.btnInstall.Name = "btnInstall";
+            this.btnInstall.Size = new System.Drawing.Size(151, 23);
+            this.btnInstall.TabIndex = 1;
+            this.btnInstall.Text = "INSTALL";
+            this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
+            // 
+            // pictureEdit1
+            // 
+            this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureEdit1.EditValue = global::PGISLauncher.Properties.Resources._47d0e318_6640_4a32_ab8b_2a5e149c2051;
+            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
+            this.pictureEdit1.Name = "pictureEdit1";
+            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
+            this.pictureEdit1.Size = new System.Drawing.Size(869, 540);
+            this.pictureEdit1.TabIndex = 23;
             // 
             // UCSystemDetails
             // 
@@ -275,14 +311,16 @@
             this.Controls.Add(this.picImage);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnInstall);
+            this.Controls.Add(this.pictureEdit1);
             this.Name = "UCSystemDetails";
             this.Size = new System.Drawing.Size(869, 540);
             this.Load += new System.EventHandler(this.UCSystemDetails_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.picImage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressPanel)).EndInit();
             this.progressPanel.ResumeLayout(false);
             this.progressPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picImage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -310,5 +348,6 @@
         private DevExpress.XtraEditors.ProgressBarControl progressBarControl;
         private DevExpress.XtraEditors.SimpleButton btnUninstall;
         private DevExpress.XtraEditors.SimpleButton btnDocs;
+        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
     }
 }

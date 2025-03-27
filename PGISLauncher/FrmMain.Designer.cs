@@ -57,7 +57,7 @@
             this.panelDetails = new DevExpress.XtraEditors.PanelControl();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.gcApps = new DevExpress.XtraGrid.GridControl();
-            this.tvApps = new DevExpress.XtraGrid.Views.Tile.TileView();
+            this.gridApps = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.pnlAdminButtons = new DevExpress.XtraEditors.PanelControl();
             this.btnDefaultApps = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddApp = new DevExpress.XtraEditors.SimpleButton();
@@ -81,7 +81,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcApps)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tvApps)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridApps)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlAdminButtons)).BeginInit();
             this.pnlAdminButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.notifyMenu)).BeginInit();
@@ -118,7 +118,7 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.panelControl1.Appearance.BackColor = System.Drawing.Color.Brown;
             this.panelControl1.Appearance.Options.UseBackColor = true;
             this.panelControl1.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.panelControl1.Controls.Add(this.btnLogout);
@@ -134,7 +134,7 @@
             // btnLogout
             // 
             this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLogout.Appearance.BackColor = System.Drawing.Color.Turquoise;
+            this.btnLogout.Appearance.BackColor = System.Drawing.Color.Teal;
             this.btnLogout.Appearance.Options.UseBackColor = true;
             this.btnLogout.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.ImageOptions.Image")));
             this.btnLogout.Location = new System.Drawing.Point(1057, 3);
@@ -150,7 +150,7 @@
             this.pictureEdit1.EditValue = ((object)(resources.GetObject("pictureEdit1.EditValue")));
             this.pictureEdit1.Location = new System.Drawing.Point(1029, 3);
             this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.pictureEdit1.Properties.Appearance.BackColor = System.Drawing.Color.Teal;
             this.pictureEdit1.Properties.Appearance.Options.UseBackColor = true;
             this.pictureEdit1.Properties.ReadOnly = true;
             this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
@@ -217,42 +217,42 @@
             // 
             this.gcApps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.gcApps.Location = new System.Drawing.Point(2, 2);
-            this.gcApps.MainView = this.tvApps;
+            this.gcApps.MainView = this.gridApps;
             this.gcApps.Name = "gcApps";
             this.gcApps.Size = new System.Drawing.Size(385, 539);
             this.gcApps.TabIndex = 1;
             this.gcApps.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
-            this.tvApps});
+            this.gridApps});
             // 
-            // tvApps
+            // gridApps
             // 
-            this.tvApps.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
+            this.gridApps.Columns.AddRange(new DevExpress.XtraGrid.Columns.GridColumn[] {
             this.colImage,
             this.colAppName,
             this.colAppAbbrev,
             this.colInfo});
-            this.tvApps.GridControl = this.gcApps;
-            this.tvApps.Name = "tvApps";
-            this.tvApps.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
-            this.tvApps.OptionsTiles.IndentBetweenGroups = 0;
-            this.tvApps.OptionsTiles.IndentBetweenItems = 0;
-            this.tvApps.OptionsTiles.ItemSize = new System.Drawing.Size(462, 60);
-            this.tvApps.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
-            this.tvApps.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.tvApps.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
-            this.tvApps.OptionsTiles.RowCount = 0;
+            this.gridApps.GridControl = this.gcApps;
+            this.gridApps.Name = "gridApps";
+            this.gridApps.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
+            this.gridApps.OptionsTiles.IndentBetweenGroups = 0;
+            this.gridApps.OptionsTiles.IndentBetweenItems = 0;
+            this.gridApps.OptionsTiles.ItemSize = new System.Drawing.Size(462, 60);
+            this.gridApps.OptionsTiles.LayoutMode = DevExpress.XtraGrid.Views.Tile.TileViewLayoutMode.List;
+            this.gridApps.OptionsTiles.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.gridApps.OptionsTiles.Padding = new System.Windows.Forms.Padding(0);
+            this.gridApps.OptionsTiles.RowCount = 0;
             tableColumnDefinition1.Length.Value = 54D;
             tableColumnDefinition2.Length.Value = 95D;
             tableColumnDefinition3.Length.Value = 75D;
-            this.tvApps.TileColumns.Add(tableColumnDefinition1);
-            this.tvApps.TileColumns.Add(tableColumnDefinition2);
-            this.tvApps.TileColumns.Add(tableColumnDefinition3);
+            this.gridApps.TileColumns.Add(tableColumnDefinition1);
+            this.gridApps.TileColumns.Add(tableColumnDefinition2);
+            this.gridApps.TileColumns.Add(tableColumnDefinition3);
             tableRowDefinition1.Length.Value = 8D;
             tableRowDefinition2.Length.Value = 8D;
             tableRowDefinition3.Length.Value = 8D;
-            this.tvApps.TileRows.Add(tableRowDefinition1);
-            this.tvApps.TileRows.Add(tableRowDefinition2);
-            this.tvApps.TileRows.Add(tableRowDefinition3);
+            this.gridApps.TileRows.Add(tableRowDefinition1);
+            this.gridApps.TileRows.Add(tableRowDefinition2);
+            this.gridApps.TileRows.Add(tableRowDefinition3);
             tableSpan1.RowSpan = 3;
             tableSpan2.ColumnIndex = 1;
             tableSpan2.ColumnSpan = 2;
@@ -262,10 +262,10 @@
             tableSpan4.ColumnIndex = 1;
             tableSpan4.ColumnSpan = 2;
             tableSpan4.RowIndex = 2;
-            this.tvApps.TileSpans.Add(tableSpan1);
-            this.tvApps.TileSpans.Add(tableSpan2);
-            this.tvApps.TileSpans.Add(tableSpan3);
-            this.tvApps.TileSpans.Add(tableSpan4);
+            this.gridApps.TileSpans.Add(tableSpan1);
+            this.gridApps.TileSpans.Add(tableSpan2);
+            this.gridApps.TileSpans.Add(tableSpan3);
+            this.gridApps.TileSpans.Add(tableSpan4);
             tileViewItemElement1.Column = this.colImage;
             tileViewItemElement1.ImageOptions.ImageAlignment = DevExpress.XtraEditors.TileItemContentAlignment.MiddleCenter;
             tileViewItemElement1.ImageOptions.ImageScaleMode = DevExpress.XtraEditors.TileItemImageScaleMode.Squeeze;
@@ -296,17 +296,17 @@
             tileViewItemElement4.RowIndex = 2;
             tileViewItemElement4.Text = "colInfo";
             tileViewItemElement4.TextAlignment = DevExpress.XtraEditors.TileItemContentAlignment.TopRight;
-            this.tvApps.TileTemplate.Add(tileViewItemElement1);
-            this.tvApps.TileTemplate.Add(tileViewItemElement2);
-            this.tvApps.TileTemplate.Add(tileViewItemElement3);
-            this.tvApps.TileTemplate.Add(tileViewItemElement4);
-            this.tvApps.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.tvApps_FocusedRowObjectChanged);
+            this.gridApps.TileTemplate.Add(tileViewItemElement1);
+            this.gridApps.TileTemplate.Add(tileViewItemElement2);
+            this.gridApps.TileTemplate.Add(tileViewItemElement3);
+            this.gridApps.TileTemplate.Add(tileViewItemElement4);
+            this.gridApps.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.tvApps_FocusedRowObjectChanged);
             // 
             // pnlAdminButtons
             // 
             this.pnlAdminButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlAdminButtons.Appearance.BackColor = System.Drawing.Color.RoyalBlue;
+            this.pnlAdminButtons.Appearance.BackColor = System.Drawing.Color.Wheat;
             this.pnlAdminButtons.Appearance.Options.UseBackColor = true;
             this.pnlAdminButtons.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pnlAdminButtons.Controls.Add(this.btnDefaultApps);
@@ -321,7 +321,7 @@
             // btnDefaultApps
             // 
             this.btnDefaultApps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDefaultApps.Appearance.BackColor = System.Drawing.Color.Turquoise;
+            this.btnDefaultApps.Appearance.BackColor = System.Drawing.Color.Teal;
             this.btnDefaultApps.Appearance.Options.UseBackColor = true;
             this.btnDefaultApps.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultApps.ImageOptions.Image")));
             this.btnDefaultApps.Location = new System.Drawing.Point(663, 6);
@@ -334,7 +334,7 @@
             // btnAddApp
             // 
             this.btnAddApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddApp.Appearance.BackColor = System.Drawing.Color.Turquoise;
+            this.btnAddApp.Appearance.BackColor = System.Drawing.Color.Teal;
             this.btnAddApp.Appearance.Options.UseBackColor = true;
             this.btnAddApp.ImageOptions.Image = global::PGISLauncher.Properties.Resources.add_16x16;
             this.btnAddApp.Location = new System.Drawing.Point(1011, 6);
@@ -347,7 +347,7 @@
             // btnUserAccess
             // 
             this.btnUserAccess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUserAccess.Appearance.BackColor = System.Drawing.Color.Turquoise;
+            this.btnUserAccess.Appearance.BackColor = System.Drawing.Color.Teal;
             this.btnUserAccess.Appearance.Options.UseBackColor = true;
             this.btnUserAccess.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUserAccess.ImageOptions.Image")));
             this.btnUserAccess.Location = new System.Drawing.Point(779, 6);
@@ -360,7 +360,7 @@
             // btnAppSettings
             // 
             this.btnAppSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAppSettings.Appearance.BackColor = System.Drawing.Color.Turquoise;
+            this.btnAppSettings.Appearance.BackColor = System.Drawing.Color.Teal;
             this.btnAppSettings.Appearance.Options.UseBackColor = true;
             this.btnAppSettings.ImageOptions.Image = global::PGISLauncher.Properties.Resources.properties_16x16;
             this.btnAppSettings.Location = new System.Drawing.Point(895, 6);
@@ -474,7 +474,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcApps)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tvApps)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gridApps)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pnlAdminButtons)).EndInit();
             this.pnlAdminButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.notifyMenu)).EndInit();
@@ -491,7 +491,7 @@
         private DevExpress.XtraEditors.PanelControl panelControl2;
         private DevExpress.XtraEditors.PanelControl panelControl3;
         private DevExpress.XtraGrid.GridControl gcApps;
-        private DevExpress.XtraGrid.Views.Tile.TileView tvApps;
+        private DevExpress.XtraGrid.Views.Tile.TileView gridApps;
         private DevExpress.XtraEditors.PanelControl panelDetails;
         private DevExpress.XtraGrid.Columns.TileViewColumn colImage;
         private DevExpress.XtraGrid.Columns.TileViewColumn colAppName;

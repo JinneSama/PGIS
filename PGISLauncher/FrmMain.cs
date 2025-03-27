@@ -42,7 +42,7 @@ namespace PGISLauncher
 
         public async Task LoadData()
         {
-            int rowHandle = tvApps.FocusedRowHandle;
+            int rowHandle = gridApps.FocusedRowHandle;
             if (UserStore.UserRole == Model.Enum.UserRole.user) SetAdminCreds(false);
             else SetAdminCreds(true);
             lblUsername.Text = UserStore.OFMISUserDto?.Username;
@@ -61,12 +61,12 @@ namespace PGISLauncher
             gcApps.DataSource = data.ToList();
 
             if(rowHandle < 0) return;
-            tvApps.FocusedRowHandle = rowHandle;
+            gridApps.FocusedRowHandle = rowHandle;
         }
 
         private void LoadDetails()
         {
-            var row = (SystemInfoViewModel)tvApps.GetFocusedRow();
+            var row = (SystemInfoViewModel)gridApps.GetFocusedRow();
             _ucManager.ShowUCSystemDetails(row.SystemInformation.Id.ToString(), row);
         }
         private void tvApps_FocusedRowObjectChanged(object sender, DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventArgs e)
@@ -76,7 +76,7 @@ namespace PGISLauncher
 
         private async void btnAppSettings_Click(object sender, System.EventArgs e)
         {
-            var row = (SystemInfoViewModel)tvApps.GetFocusedRow();
+            var row = (SystemInfoViewModel)gridApps.GetFocusedRow();
             var frm = new FrmAppSettings(row.SystemInformation);
             frm.ShowDialog();
 

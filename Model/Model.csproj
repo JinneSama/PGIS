@@ -98,45 +98,9 @@
     <Compile Include="Interface\IUnitOfWork.cs" />
     <Compile Include="Manager\OFMISManager.cs" />
     <Compile Include="Manager\UserAppManager.cs" />
-    <Compile Include="Migrations\202502060652038_Initial-Create.cs" />
-    <Compile Include="Migrations\202502060652038_Initial-Create.Designer.cs">
-      <DependentUpon>202502060652038_Initial-Create.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202502070444225_Modified-Data.cs" />
-    <Compile Include="Migrations\202502070444225_Modified-Data.Designer.cs">
-      <DependentUpon>202502070444225_Modified-Data.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202502070515588_Modified-Data2.cs" />
-    <Compile Include="Migrations\202502070515588_Modified-Data2.Designer.cs">
-      <DependentUpon>202502070515588_Modified-Data2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202502070531163_Modified-Data3.cs" />
-    <Compile Include="Migrations\202502070531163_Modified-Data3.Designer.cs">
-      <DependentUpon>202502070531163_Modified-Data3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202502070812085_Modified-Data4.cs" />
-    <Compile Include="Migrations\202502070812085_Modified-Data4.Designer.cs">
-      <DependentUpon>202502070812085_Modified-Data4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202502070814048_Modified-Data5.cs" />
-    <Compile Include="Migrations\202502070814048_Modified-Data5.Designer.cs">
-      <DependentUpon>202502070814048_Modified-Data5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202502100035125_UserRoles.cs" />
-    <Compile Include="Migrations\202502100035125_UserRoles.Designer.cs">
-      <DependentUpon>202502100035125_UserRoles.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202502100400125_UserRoles2.cs" />
-    <Compile Include="Migrations\202502100400125_UserRoles2.Designer.cs">
-      <DependentUpon>202502100400125_UserRoles2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202502110042357_AddSolutionName.cs" />
-    <Compile Include="Migrations\202502110042357_AddSolutionName.Designer.cs">
-      <DependentUpon>202502110042357_AddSolutionName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202502110449582_AddSolutionName2.cs" />
-    <Compile Include="Migrations\202502110449582_AddSolutionName2.Designer.cs">
-      <DependentUpon>202502110449582_AddSolutionName2.cs</DependentUpon>
+    <Compile Include="Migrations\202503210118274_newContinue.cs" />
+    <Compile Include="Migrations\202503210118274_newContinue.Designer.cs">
+      <DependentUpon>202503210118274_newContinue.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -160,38 +124,10 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202502060652038_Initial-Create.resx">
-      <DependentUpon>202502060652038_Initial-Create.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202502070444225_Modified-Data.resx">
-      <DependentUpon>202502070444225_Modified-Data.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202502070515588_Modified-Data2.resx">
-      <DependentUpon>202502070515588_Modified-Data2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202502070531163_Modified-Data3.resx">
-      <DependentUpon>202502070531163_Modified-Data3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202502070812085_Modified-Data4.resx">
-      <DependentUpon>202502070812085_Modified-Data4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202502070814048_Modified-Data5.resx">
-      <DependentUpon>202502070814048_Modified-Data5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202502100035125_UserRoles.resx">
-      <DependentUpon>202502100035125_UserRoles.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202502100400125_UserRoles2.resx">
-      <DependentUpon>202502100400125_UserRoles2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202502110042357_AddSolutionName.resx">
-      <DependentUpon>202502110042357_AddSolutionName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202502110449582_AddSolutionName2.resx">
-      <DependentUpon>202502110449582_AddSolutionName2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202503210118274_newContinue.resx">
+      <DependentUpon>202503210118274_newContinue.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

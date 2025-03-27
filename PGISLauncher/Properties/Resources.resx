@@ -127,22 +127,28 @@
   <data name="properties_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\properties_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="PGNV_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PGNV_ico.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="close_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\close_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="bouser_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\bouser_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="download_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\download_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PGNV" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PGNV.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="add_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\add_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PGNV" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PGNV.jpeg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="download_16x16" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\download_16x16.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PGNV_ico" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PGNV_ico.ico;System.Drawing.Icon, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="33bb69c3-6a50-41fc-bbb8-a56a207c5c19" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\33bb69c3-6a50-41fc-bbb8-a56a207c5c19.jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="47d0e318-6640-4a32-ab8b-2a5e149c2051" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\47d0e318-6640-4a32-ab8b-2a5e149c2051.jfif;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
