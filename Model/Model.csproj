@@ -91,6 +91,7 @@
     <Compile Include="Entities\AppUsage.cs" />
     <Compile Include="Entities\InformationSystem.cs" />
     <Compile Include="Entities\ISImage.cs" />
+    <Compile Include="Entities\OfficeAccess.cs" />
     <Compile Include="Entities\UserAccess.cs" />
     <Compile Include="Enum\AppAccessType.cs" />
     <Compile Include="Enum\UserRole.cs" />
@@ -98,18 +99,24 @@
     <Compile Include="Interface\IUnitOfWork.cs" />
     <Compile Include="Manager\OFMISManager.cs" />
     <Compile Include="Manager\UserAppManager.cs" />
-    <Compile Include="Migrations\202503210118274_newContinue.cs" />
-    <Compile Include="Migrations\202503210118274_newContinue.Designer.cs">
-      <DependentUpon>202503210118274_newContinue.cs</DependentUpon>
+    <Compile Include="Migrations\202504100205214_initial.cs" />
+    <Compile Include="Migrations\202504100205214_initial.Designer.cs">
+      <DependentUpon>202504100205214_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202504110124437_addOfficeAccess.cs" />
+    <Compile Include="Migrations\202504110124437_addOfficeAccess.Designer.cs">
+      <DependentUpon>202504110124437_addOfficeAccess.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Repository.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
     <Compile Include="Service\Dto\ArgumentCredentialsDto.cs" />
+    <Compile Include="Service\Dto\OFMISOfficesDto.cs" />
     <Compile Include="Service\Dto\OFMISUsersDto.cs" />
     <Compile Include="Service\OFMISService.cs" />
     <Compile Include="UserManager\UserStore.cs" />
+    <Compile Include="ViewModel\OfficeAccessViewModel.cs" />
     <Compile Include="ViewModel\SystemInfoViewModel.cs" />
     <Compile Include="ViewModel\UserAccessViewModel.cs" />
   </ItemGroup>
@@ -124,8 +131,11 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202503210118274_newContinue.resx">
-      <DependentUpon>202503210118274_newContinue.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202504100205214_initial.resx">
+      <DependentUpon>202504100205214_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504110124437_addOfficeAccess.resx">
+      <DependentUpon>202504110124437_addOfficeAccess.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -9,6 +9,7 @@ namespace Model.Interface
         IRepository<ISImage> ISImageRepo { get; }
         IRepository<UserAccess> UserAccessRepo { get; }
         IRepository<AppUsage> AppUsageRepo { get; }
+        IRepository<OfficeAccess> OfficeAccessRepo { get; }
         Task SaveAsync();
         void Save();
     }

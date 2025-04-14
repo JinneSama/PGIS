@@ -49,12 +49,10 @@
             this.picImage = new DevExpress.XtraEditors.PictureEdit();
             this.btnOpen = new DevExpress.XtraEditors.SimpleButton();
             this.btnInstall = new DevExpress.XtraEditors.SimpleButton();
-            this.pictureEdit1 = new DevExpress.XtraEditors.PictureEdit();
             ((System.ComponentModel.ISupportInitialize)(this.progressPanel)).BeginInit();
             this.progressPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImage.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // labelControl1
@@ -276,19 +274,6 @@
             this.btnInstall.Text = "INSTALL";
             this.btnInstall.Click += new System.EventHandler(this.btnInstall_Click);
             // 
-            // pictureEdit1
-            // 
-            this.pictureEdit1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureEdit1.EditValue = global::PGISLauncher.Properties.Resources._47d0e318_6640_4a32_ab8b_2a5e149c2051;
-            this.pictureEdit1.Location = new System.Drawing.Point(0, 0);
-            this.pictureEdit1.Name = "pictureEdit1";
-            this.pictureEdit1.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.pictureEdit1.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Stretch;
-            this.pictureEdit1.Size = new System.Drawing.Size(869, 540);
-            this.pictureEdit1.TabIndex = 23;
-            // 
             // UCSystemDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -311,7 +296,6 @@
             this.Controls.Add(this.picImage);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnInstall);
-            this.Controls.Add(this.pictureEdit1);
             this.Name = "UCSystemDetails";
             this.Size = new System.Drawing.Size(869, 540);
             this.Load += new System.EventHandler(this.UCSystemDetails_Load);
@@ -320,7 +304,6 @@
             this.progressPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picImage.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -348,6 +331,5 @@
         private DevExpress.XtraEditors.ProgressBarControl progressBarControl;
         private DevExpress.XtraEditors.SimpleButton btnUninstall;
         private DevExpress.XtraEditors.SimpleButton btnDocs;
-        private DevExpress.XtraEditors.PictureEdit pictureEdit1;
     }
 }

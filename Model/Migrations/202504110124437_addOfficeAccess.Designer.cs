@@ -7,13 +7,13 @@ namespace Model.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.5.1")]
-    public sealed partial class newContinue : IMigrationMetadata
+    public sealed partial class addOfficeAccess : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(newContinue));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(addOfficeAccess));
         
         string IMigrationMetadata.Id
         {
-            get { return "202503210118274_newContinue"; }
+            get { return "202504110124437_addOfficeAccess"; }
         }
         
         string IMigrationMetadata.Source

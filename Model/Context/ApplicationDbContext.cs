@@ -17,5 +17,6 @@ namespace Model.Context
         public DbSet<UserAccess> UserAccess { get; set; }
         public DbSet<ISImage> ISImage { get; set; }
         public DbSet<AppUsage> AppUsage { get; set; }
+        public DbSet<OfficeAccess> OfficeAccesses { get; set; }
     }
 }

@@ -10,6 +10,7 @@ namespace Model.Entities
             Images = new HashSet<ISImage>();
             UserAccesses = new HashSet<UserAccess>();
             AppUsage = new HashSet<AppUsage>();
+            OfficeAccesses = new HashSet<OfficeAccess>();
         }
         public int Id { get; set; }
         public string AbbrevName { get; set; }
@@ -26,6 +27,7 @@ namespace Model.Entities
         public bool? IsDefaultApp { get; set; }
         public virtual ICollection<ISImage> Images { get; set; }
         public virtual ICollection<UserAccess> UserAccesses { get; set; }
+        public virtual ICollection<OfficeAccess> OfficeAccesses { get; set; }
         public virtual ICollection<AppUsage> AppUsage { get; set; }
     }
 }

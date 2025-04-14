@@ -59,6 +59,7 @@
             this.gcApps = new DevExpress.XtraGrid.GridControl();
             this.gridApps = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.pnlAdminButtons = new DevExpress.XtraEditors.PanelControl();
+            this.btnOfficeAccess = new DevExpress.XtraEditors.SimpleButton();
             this.btnDefaultApps = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddApp = new DevExpress.XtraEditors.SimpleButton();
             this.btnUserAccess = new DevExpress.XtraEditors.SimpleButton();
@@ -309,6 +310,7 @@
             this.pnlAdminButtons.Appearance.BackColor = System.Drawing.Color.Wheat;
             this.pnlAdminButtons.Appearance.Options.UseBackColor = true;
             this.pnlAdminButtons.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnlAdminButtons.Controls.Add(this.btnOfficeAccess);
             this.pnlAdminButtons.Controls.Add(this.btnDefaultApps);
             this.pnlAdminButtons.Controls.Add(this.btnAddApp);
             this.pnlAdminButtons.Controls.Add(this.btnUserAccess);
@@ -318,13 +320,26 @@
             this.pnlAdminButtons.Size = new System.Drawing.Size(1133, 40);
             this.pnlAdminButtons.TabIndex = 2;
             // 
+            // btnOfficeAccess
+            // 
+            this.btnOfficeAccess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOfficeAccess.Appearance.BackColor = System.Drawing.Color.Teal;
+            this.btnOfficeAccess.Appearance.Options.UseBackColor = true;
+            this.btnOfficeAccess.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOfficeAccess.ImageOptions.Image")));
+            this.btnOfficeAccess.Location = new System.Drawing.Point(663, 6);
+            this.btnOfficeAccess.Name = "btnOfficeAccess";
+            this.btnOfficeAccess.Size = new System.Drawing.Size(110, 28);
+            this.btnOfficeAccess.TabIndex = 4;
+            this.btnOfficeAccess.Text = "Office Access";
+            this.btnOfficeAccess.Click += new System.EventHandler(this.btnOfficeAccess_Click);
+            // 
             // btnDefaultApps
             // 
             this.btnDefaultApps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDefaultApps.Appearance.BackColor = System.Drawing.Color.Teal;
             this.btnDefaultApps.Appearance.Options.UseBackColor = true;
             this.btnDefaultApps.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultApps.ImageOptions.Image")));
-            this.btnDefaultApps.Location = new System.Drawing.Point(663, 6);
+            this.btnDefaultApps.Location = new System.Drawing.Point(547, 6);
             this.btnDefaultApps.Name = "btnDefaultApps";
             this.btnDefaultApps.Size = new System.Drawing.Size(110, 28);
             this.btnDefaultApps.TabIndex = 3;
@@ -514,6 +529,7 @@
         private DevExpress.XtraBars.BarDockControl barDockControlBottom;
         private DevExpress.XtraBars.BarDockControl barDockControlLeft;
         private DevExpress.XtraBars.BarDockControl barDockControlRight;
+        private DevExpress.XtraEditors.SimpleButton btnOfficeAccess;
     }
 }
 

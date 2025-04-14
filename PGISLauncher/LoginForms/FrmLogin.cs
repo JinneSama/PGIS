@@ -51,6 +51,7 @@ namespace PGISLauncher.LoginForms
             IUnitOfWork unitOfWork = new UnitOfWork();
             var user = await unitOfWork.UserAccessRepo.FindAsync(x => x.OFMISId == ofmisUser.OFMISId);
 
+            if (user == null) return false;
             UserStore userStore = new UserStore(credentials.Username, credentials.Password, ofmisUser, user.UserRole);
             return true;
         }

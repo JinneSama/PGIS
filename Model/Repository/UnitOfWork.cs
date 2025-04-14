@@ -52,6 +52,16 @@ namespace Model.Repository
             }
         }
 
+        private IRepository<OfficeAccess> _OfficeAccessRepo;
+        public IRepository<OfficeAccess> OfficeAccessRepo
+        {
+            get
+            {
+                if (_OfficeAccessRepo == null) _OfficeAccessRepo = new Repository<OfficeAccess>(_context);
+                return _OfficeAccessRepo;
+            }
+        }
+
         public void Save()
         {
             _context.SaveChanges();

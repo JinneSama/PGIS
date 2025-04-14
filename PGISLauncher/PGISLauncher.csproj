@@ -13,7 +13,7 @@
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
     <IsWebBootstrapper>true</IsWebBootstrapper>
-    <PublishUrl>\\172.17.16.13\C%24\inetpub\wwwroot\pgis\</PublishUrl>
+    <PublishUrl>\\192.168.250.24\FWTU_Shared_Files\pgis\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Web</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -23,13 +23,13 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <InstallUrl>http://172.17.16.13/pgis/</InstallUrl>
+    <InstallUrl>http://192.168.250.24:8082/pgis/</InstallUrl>
     <ProductName>PGIS</ProductName>
     <PublisherName>GO-PITD</PublisherName>
     <SuiteName>PGIS</SuiteName>
     <CreateWebPageOnPublish>true</CreateWebPageOnPublish>
     <WebPage>index.htm</WebPage>
-    <ApplicationRevision>34</ApplicationRevision>
+    <ApplicationRevision>37</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -149,6 +149,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToolForms\FrmAddEditOfficeAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolForms\FrmAddEditOfficeAccess.Designer.cs">
+      <DependentUpon>FrmAddEditOfficeAccess.cs</DependentUpon>
+    </Compile>
     <Compile Include="ToolForms\FrmAddEditUserAccess.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -166,6 +172,12 @@
     </Compile>
     <Compile Include="ToolForms\FrmDefaultApps.Designer.cs">
       <DependentUpon>FrmDefaultApps.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ToolForms\FrmOfficeAccess.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ToolForms\FrmOfficeAccess.Designer.cs">
+      <DependentUpon>FrmOfficeAccess.cs</DependentUpon>
     </Compile>
     <Compile Include="ToolForms\FrmOFMISUsers.cs">
       <SubType>Form</SubType>
@@ -205,6 +217,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ToolForms\FrmAddEditOfficeAccess.resx">
+      <DependentUpon>FrmAddEditOfficeAccess.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ToolForms\FrmAddEditUserAccess.resx">
       <DependentUpon>FrmAddEditUserAccess.cs</DependentUpon>
     </EmbeddedResource>
@@ -213,6 +228,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ToolForms\FrmDefaultApps.resx">
       <DependentUpon>FrmDefaultApps.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ToolForms\FrmOfficeAccess.resx">
+      <DependentUpon>FrmOfficeAccess.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ToolForms\FrmOFMISUsers.resx">
       <DependentUpon>FrmOFMISUsers.cs</DependentUpon>

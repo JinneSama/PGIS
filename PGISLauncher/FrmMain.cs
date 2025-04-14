@@ -45,11 +45,12 @@ namespace PGISLauncher
             int rowHandle = gridApps.FocusedRowHandle;
             if (UserStore.UserRole == Model.Enum.UserRole.user) SetAdminCreds(false);
             else SetAdminCreds(true);
+
             lblUsername.Text = UserStore.OFMISUserDto?.Username;
             UserAppManager.InitManager();
             var unitOfWork = new UnitOfWork();
 
-            var userApps = await UserAppManager.GetUserApps(UserStore.OFMISUserDto?.OFMISId);
+            var userApps = await UserAppManager.GetUserApps(UserStore.OFMISUserDto);
             var data = userApps.Select(x => new SystemInfoViewModel{ SystemInformation = x }).ToList();
             foreach (var item in data)
             {
@@ -176,6 +177,14 @@ namespace PGISLauncher
         {
             _fullExit = true;
             Application.Exit();
+        }
+
+        private async void btnOfficeAccess_Click(object sender, System.EventArgs e)
+        {
+            var frm = new FrmOfficeAccess();
+            frm.ShowDialog();
+
+            await LoadData();
         }
     }
 }

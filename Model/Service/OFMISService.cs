@@ -54,5 +54,39 @@ namespace Model.Service
             });
             return users;
         }
+
+        public async Task<OFMISOfficesDto> GetOffice(int Id)
+        {
+            string jwtToken = await _authBackend.CheckAuthentication();
+            if (string.IsNullOrEmpty(jwtToken)) return null;
+            var request = new HttpRequestMessage(HttpMethod.Get, httpClient.BaseAddress + "office/" + Id);
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwtToken);
+            var response = await httpClient.SendAsync(request);
+            if (!response.IsSuccessStatusCode) return null;
+
+            var json = await response.Content.ReadAsStringAsync();
+            var office = JsonSerializer.Deserialize<OFMISOfficesDto>(json, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+            return office;
+        }
+
+        public async Task<IEnumerable<OFMISOfficesDto>> GetOffices()
+        {
+            string jwtToken = await _authBackend.CheckAuthentication();
+            if (string.IsNullOrEmpty(jwtToken)) return null;
+            var request = new HttpRequestMessage(HttpMethod.Get, httpClient.BaseAddress + "offices/");
+            request.Headers.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", jwtToken);
+            var response = await httpClient.SendAsync(request);
+            response.EnsureSuccessStatusCode();
+
+            var json = await response.Content.ReadAsStringAsync();
+            var offices = JsonSerializer.Deserialize<IEnumerable<OFMISOfficesDto>>(json, new JsonSerializerOptions
+            {
+                PropertyNameCaseInsensitive = true
+            });
+            return offices;
+        }
     }
 }
