@@ -1,14 +1,12 @@
 ﻿using Helpers.Interface;
 using Helpers.Utility;
 using Helpers.Utility.Model;
-using System.ComponentModel;
 using System.Net;
 using System.Threading.Tasks;
 using DevExpress.XtraEditors;
 using Model.ViewModel;
 using System;
 using System.Diagnostics;
-using System.IO;
 using Model.Entities;
 using Helpers.Service;
 using System.Drawing;
@@ -47,8 +45,8 @@ namespace PGISLauncher.DashboardForms
             else SetDownLoadInstall(true);
 
             IControlMapper<InformationSystem> mapper = new ControlMapper<InformationSystem>();
-            mapper.MapToControls(_systemInformation.SystemInformation, this);
-            picImage.Image = await _fileService.DownloadFile(_systemInformation.SystemInformation.IconPath);
+            mapper.MapToControls(_systemInformation.SystemInformation, this, panelTitle);
+            //picImage.Image = await _fileService.DownloadFile(_systemInformation.SystemInformation.IconPath);
             await TrackStatus(_systemInformation.SystemInformation.SolutionName);
         }
 
@@ -188,6 +186,11 @@ namespace PGISLauncher.DashboardForms
         private async void RefreshMainFormData()
         {
             await ((FrmMain)_frmMain).LoadData();
+        }
+
+        private void txtWebpage_Click(object sender, EventArgs e)
+        {
+            Process.Start(txtWebpage.Text);
         }
     }
 }

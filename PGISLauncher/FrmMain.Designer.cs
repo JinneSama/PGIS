@@ -54,16 +54,16 @@
             this.lblUsername = new DevExpress.XtraEditors.LabelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
-            this.panelDetails = new DevExpress.XtraEditors.PanelControl();
-            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
-            this.gcApps = new DevExpress.XtraGrid.GridControl();
-            this.gridApps = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.pnlAdminButtons = new DevExpress.XtraEditors.PanelControl();
             this.btnOfficeAccess = new DevExpress.XtraEditors.SimpleButton();
             this.btnDefaultApps = new DevExpress.XtraEditors.SimpleButton();
             this.btnAddApp = new DevExpress.XtraEditors.SimpleButton();
             this.btnUserAccess = new DevExpress.XtraEditors.SimpleButton();
             this.btnAppSettings = new DevExpress.XtraEditors.SimpleButton();
+            this.panelDetails = new DevExpress.XtraEditors.PanelControl();
+            this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
+            this.gcApps = new DevExpress.XtraGrid.GridControl();
+            this.gridApps = new DevExpress.XtraGrid.Views.Tile.TileView();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.notifyMenu = new DevExpress.XtraBars.PopupMenu(this.components);
             this.btnNotifLogout = new DevExpress.XtraBars.BarButtonItem();
@@ -78,13 +78,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
             this.panelControl2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pnlAdminButtons)).BeginInit();
+            this.pnlAdminButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelDetails)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gcApps)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridApps)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlAdminButtons)).BeginInit();
-            this.pnlAdminButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.notifyMenu)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).BeginInit();
             this.SuspendLayout();
@@ -190,19 +190,104 @@
             this.panelControl2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelControl2.Controls.Add(this.pnlAdminButtons);
             this.panelControl2.Controls.Add(this.panelDetails);
             this.panelControl2.Controls.Add(this.panelControl3);
-            this.panelControl2.Location = new System.Drawing.Point(0, 80);
+            this.panelControl2.Location = new System.Drawing.Point(0, 40);
             this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(1133, 547);
+            this.panelControl2.Size = new System.Drawing.Size(1133, 587);
             this.panelControl2.TabIndex = 1;
+            // 
+            // pnlAdminButtons
+            // 
+            this.pnlAdminButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pnlAdminButtons.Appearance.BackColor = System.Drawing.Color.Wheat;
+            this.pnlAdminButtons.Appearance.Options.UseBackColor = true;
+            this.pnlAdminButtons.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pnlAdminButtons.Controls.Add(this.btnOfficeAccess);
+            this.pnlAdminButtons.Controls.Add(this.btnDefaultApps);
+            this.pnlAdminButtons.Controls.Add(this.btnAddApp);
+            this.pnlAdminButtons.Controls.Add(this.btnUserAccess);
+            this.pnlAdminButtons.Controls.Add(this.btnAppSettings);
+            this.pnlAdminButtons.Location = new System.Drawing.Point(391, 0);
+            this.pnlAdminButtons.Name = "pnlAdminButtons";
+            this.pnlAdminButtons.Size = new System.Drawing.Size(742, 49);
+            this.pnlAdminButtons.TabIndex = 2;
+            // 
+            // btnOfficeAccess
+            // 
+            this.btnOfficeAccess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOfficeAccess.Appearance.BackColor = System.Drawing.Color.Teal;
+            this.btnOfficeAccess.Appearance.Options.UseBackColor = true;
+            this.btnOfficeAccess.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOfficeAccess.ImageOptions.Image")));
+            this.btnOfficeAccess.Location = new System.Drawing.Point(272, 10);
+            this.btnOfficeAccess.Name = "btnOfficeAccess";
+            this.btnOfficeAccess.Size = new System.Drawing.Size(110, 28);
+            this.btnOfficeAccess.TabIndex = 4;
+            this.btnOfficeAccess.Text = "Office Access";
+            this.btnOfficeAccess.Click += new System.EventHandler(this.btnOfficeAccess_Click);
+            // 
+            // btnDefaultApps
+            // 
+            this.btnDefaultApps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDefaultApps.Appearance.BackColor = System.Drawing.Color.Teal;
+            this.btnDefaultApps.Appearance.Options.UseBackColor = true;
+            this.btnDefaultApps.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultApps.ImageOptions.Image")));
+            this.btnDefaultApps.Location = new System.Drawing.Point(156, 10);
+            this.btnDefaultApps.Name = "btnDefaultApps";
+            this.btnDefaultApps.Size = new System.Drawing.Size(110, 28);
+            this.btnDefaultApps.TabIndex = 3;
+            this.btnDefaultApps.Text = "Default Apps";
+            this.btnDefaultApps.Click += new System.EventHandler(this.btnDefaultApps_Click);
+            // 
+            // btnAddApp
+            // 
+            this.btnAddApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddApp.Appearance.BackColor = System.Drawing.Color.Teal;
+            this.btnAddApp.Appearance.Options.UseBackColor = true;
+            this.btnAddApp.ImageOptions.Image = global::PGISLauncher.Properties.Resources.add_16x16;
+            this.btnAddApp.Location = new System.Drawing.Point(620, 10);
+            this.btnAddApp.Name = "btnAddApp";
+            this.btnAddApp.Size = new System.Drawing.Size(110, 28);
+            this.btnAddApp.TabIndex = 2;
+            this.btnAddApp.Text = "Add New App";
+            this.btnAddApp.Click += new System.EventHandler(this.btnAddApp_Click);
+            // 
+            // btnUserAccess
+            // 
+            this.btnUserAccess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnUserAccess.Appearance.BackColor = System.Drawing.Color.Teal;
+            this.btnUserAccess.Appearance.Options.UseBackColor = true;
+            this.btnUserAccess.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUserAccess.ImageOptions.Image")));
+            this.btnUserAccess.Location = new System.Drawing.Point(388, 10);
+            this.btnUserAccess.Name = "btnUserAccess";
+            this.btnUserAccess.Size = new System.Drawing.Size(110, 28);
+            this.btnUserAccess.TabIndex = 1;
+            this.btnUserAccess.Text = "User Access";
+            this.btnUserAccess.Click += new System.EventHandler(this.btnUserAccess_Click);
+            // 
+            // btnAppSettings
+            // 
+            this.btnAppSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAppSettings.Appearance.BackColor = System.Drawing.Color.Teal;
+            this.btnAppSettings.Appearance.Options.UseBackColor = true;
+            this.btnAppSettings.ImageOptions.Image = global::PGISLauncher.Properties.Resources.properties_16x16;
+            this.btnAppSettings.Location = new System.Drawing.Point(504, 10);
+            this.btnAppSettings.Name = "btnAppSettings";
+            this.btnAppSettings.Size = new System.Drawing.Size(110, 28);
+            this.btnAppSettings.TabIndex = 0;
+            this.btnAppSettings.Text = "App Settings";
+            this.btnAppSettings.Click += new System.EventHandler(this.btnAppSettings_Click);
             // 
             // panelDetails
             // 
-            this.panelDetails.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelDetails.Location = new System.Drawing.Point(391, 2);
+            this.panelDetails.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelDetails.Location = new System.Drawing.Point(391, 49);
             this.panelDetails.Name = "panelDetails";
-            this.panelDetails.Size = new System.Drawing.Size(740, 543);
+            this.panelDetails.Size = new System.Drawing.Size(740, 536);
             this.panelDetails.TabIndex = 1;
             // 
             // panelControl3
@@ -211,7 +296,7 @@
             this.panelControl3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panelControl3.Location = new System.Drawing.Point(2, 2);
             this.panelControl3.Name = "panelControl3";
-            this.panelControl3.Size = new System.Drawing.Size(389, 543);
+            this.panelControl3.Size = new System.Drawing.Size(389, 583);
             this.panelControl3.TabIndex = 0;
             // 
             // gcApps
@@ -220,7 +305,7 @@
             this.gcApps.Location = new System.Drawing.Point(2, 2);
             this.gcApps.MainView = this.gridApps;
             this.gcApps.Name = "gcApps";
-            this.gcApps.Size = new System.Drawing.Size(385, 539);
+            this.gcApps.Size = new System.Drawing.Size(385, 579);
             this.gcApps.TabIndex = 1;
             this.gcApps.ViewCollection.AddRange(new DevExpress.XtraGrid.Views.Base.BaseView[] {
             this.gridApps});
@@ -234,6 +319,8 @@
             this.colInfo});
             this.gridApps.GridControl = this.gcApps;
             this.gridApps.Name = "gridApps";
+            this.gridApps.OptionsFind.AlwaysVisible = true;
+            this.gridApps.OptionsFind.FindNullPrompt = "Enter text to a System...";
             this.gridApps.OptionsTiles.GroupTextPadding = new System.Windows.Forms.Padding(12, 8, 12, 8);
             this.gridApps.OptionsTiles.IndentBetweenGroups = 0;
             this.gridApps.OptionsTiles.IndentBetweenItems = 0;
@@ -302,88 +389,6 @@
             this.gridApps.TileTemplate.Add(tileViewItemElement3);
             this.gridApps.TileTemplate.Add(tileViewItemElement4);
             this.gridApps.FocusedRowObjectChanged += new DevExpress.XtraGrid.Views.Base.FocusedRowObjectChangedEventHandler(this.tvApps_FocusedRowObjectChanged);
-            // 
-            // pnlAdminButtons
-            // 
-            this.pnlAdminButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pnlAdminButtons.Appearance.BackColor = System.Drawing.Color.Wheat;
-            this.pnlAdminButtons.Appearance.Options.UseBackColor = true;
-            this.pnlAdminButtons.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.pnlAdminButtons.Controls.Add(this.btnOfficeAccess);
-            this.pnlAdminButtons.Controls.Add(this.btnDefaultApps);
-            this.pnlAdminButtons.Controls.Add(this.btnAddApp);
-            this.pnlAdminButtons.Controls.Add(this.btnUserAccess);
-            this.pnlAdminButtons.Controls.Add(this.btnAppSettings);
-            this.pnlAdminButtons.Location = new System.Drawing.Point(0, 40);
-            this.pnlAdminButtons.Name = "pnlAdminButtons";
-            this.pnlAdminButtons.Size = new System.Drawing.Size(1133, 40);
-            this.pnlAdminButtons.TabIndex = 2;
-            // 
-            // btnOfficeAccess
-            // 
-            this.btnOfficeAccess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnOfficeAccess.Appearance.BackColor = System.Drawing.Color.Teal;
-            this.btnOfficeAccess.Appearance.Options.UseBackColor = true;
-            this.btnOfficeAccess.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnOfficeAccess.ImageOptions.Image")));
-            this.btnOfficeAccess.Location = new System.Drawing.Point(663, 6);
-            this.btnOfficeAccess.Name = "btnOfficeAccess";
-            this.btnOfficeAccess.Size = new System.Drawing.Size(110, 28);
-            this.btnOfficeAccess.TabIndex = 4;
-            this.btnOfficeAccess.Text = "Office Access";
-            this.btnOfficeAccess.Click += new System.EventHandler(this.btnOfficeAccess_Click);
-            // 
-            // btnDefaultApps
-            // 
-            this.btnDefaultApps.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDefaultApps.Appearance.BackColor = System.Drawing.Color.Teal;
-            this.btnDefaultApps.Appearance.Options.UseBackColor = true;
-            this.btnDefaultApps.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnDefaultApps.ImageOptions.Image")));
-            this.btnDefaultApps.Location = new System.Drawing.Point(547, 6);
-            this.btnDefaultApps.Name = "btnDefaultApps";
-            this.btnDefaultApps.Size = new System.Drawing.Size(110, 28);
-            this.btnDefaultApps.TabIndex = 3;
-            this.btnDefaultApps.Text = "Default Apps";
-            this.btnDefaultApps.Click += new System.EventHandler(this.btnDefaultApps_Click);
-            // 
-            // btnAddApp
-            // 
-            this.btnAddApp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddApp.Appearance.BackColor = System.Drawing.Color.Teal;
-            this.btnAddApp.Appearance.Options.UseBackColor = true;
-            this.btnAddApp.ImageOptions.Image = global::PGISLauncher.Properties.Resources.add_16x16;
-            this.btnAddApp.Location = new System.Drawing.Point(1011, 6);
-            this.btnAddApp.Name = "btnAddApp";
-            this.btnAddApp.Size = new System.Drawing.Size(110, 28);
-            this.btnAddApp.TabIndex = 2;
-            this.btnAddApp.Text = "Add New App";
-            this.btnAddApp.Click += new System.EventHandler(this.btnAddApp_Click);
-            // 
-            // btnUserAccess
-            // 
-            this.btnUserAccess.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnUserAccess.Appearance.BackColor = System.Drawing.Color.Teal;
-            this.btnUserAccess.Appearance.Options.UseBackColor = true;
-            this.btnUserAccess.ImageOptions.Image = ((System.Drawing.Image)(resources.GetObject("btnUserAccess.ImageOptions.Image")));
-            this.btnUserAccess.Location = new System.Drawing.Point(779, 6);
-            this.btnUserAccess.Name = "btnUserAccess";
-            this.btnUserAccess.Size = new System.Drawing.Size(110, 28);
-            this.btnUserAccess.TabIndex = 1;
-            this.btnUserAccess.Text = "User Access";
-            this.btnUserAccess.Click += new System.EventHandler(this.btnUserAccess_Click);
-            // 
-            // btnAppSettings
-            // 
-            this.btnAppSettings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAppSettings.Appearance.BackColor = System.Drawing.Color.Teal;
-            this.btnAppSettings.Appearance.Options.UseBackColor = true;
-            this.btnAppSettings.ImageOptions.Image = global::PGISLauncher.Properties.Resources.properties_16x16;
-            this.btnAppSettings.Location = new System.Drawing.Point(895, 6);
-            this.btnAppSettings.Name = "btnAppSettings";
-            this.btnAppSettings.Size = new System.Drawing.Size(110, 28);
-            this.btnAppSettings.TabIndex = 0;
-            this.btnAppSettings.Text = "App Settings";
-            this.btnAppSettings.Click += new System.EventHandler(this.btnAppSettings_Click);
             // 
             // notifyIcon
             // 
@@ -467,7 +472,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1133, 627);
-            this.Controls.Add(this.pnlAdminButtons);
             this.Controls.Add(this.panelControl2);
             this.Controls.Add(this.panelControl1);
             this.Controls.Add(this.barDockControlLeft);
@@ -485,13 +489,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
             this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pnlAdminButtons)).EndInit();
+            this.pnlAdminButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelDetails)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gcApps)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gridApps)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pnlAdminButtons)).EndInit();
-            this.pnlAdminButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.notifyMenu)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager)).EndInit();
             this.ResumeLayout(false);

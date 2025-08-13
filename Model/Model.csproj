@@ -107,6 +107,14 @@
     <Compile Include="Migrations\202504110124437_addOfficeAccess.Designer.cs">
       <DependentUpon>202504110124437_addOfficeAccess.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202504150622121_addwebpage.cs" />
+    <Compile Include="Migrations\202504150622121_addwebpage.Designer.cs">
+      <DependentUpon>202504150622121_addwebpage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202506090613177_DBLimitFix.cs" />
+    <Compile Include="Migrations\202506090613177_DBLimitFix.Designer.cs">
+      <DependentUpon>202506090613177_DBLimitFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\Repository.cs" />
@@ -136,6 +144,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202504110124437_addOfficeAccess.resx">
       <DependentUpon>202504110124437_addOfficeAccess.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202504150622121_addwebpage.resx">
+      <DependentUpon>202504150622121_addwebpage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202506090613177_DBLimitFix.resx">
+      <DependentUpon>202506090613177_DBLimitFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

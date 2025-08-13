@@ -9,14 +9,17 @@ namespace Helpers.Utility
 {
     public class ControlMapper<T> : IControlMapper<T> where T : class
     {
-        public void MapToControls(T entity, Control controlParent)
+        public void MapToControls(T entity,params Control[] controlParents)
         {
             var properties = typeof(T).GetProperties();
             foreach (var property in properties)
             {
-                var control = FindControlByPropertyName(controlParent, property.Name);
-                if (control == null) continue;
-                SetValue(property.GetValue(entity), control);
+                foreach(var parent in controlParents)
+                {
+                    var control = FindControlByPropertyName(parent, property.Name);
+                    if (control == null) continue;
+                    SetValue(property.GetValue(entity), control);
+                }
             }
         }
         private Control FindControlByPropertyName(Control parent, string propertyName)

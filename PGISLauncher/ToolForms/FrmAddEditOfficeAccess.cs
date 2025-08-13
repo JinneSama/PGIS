@@ -21,7 +21,6 @@ namespace PGISLauncher.ToolForms
     public partial class FrmAddEditOfficeAccess : DevExpress.XtraEditors.XtraForm
     {
         private readonly OfficeAccess _officeAccess;
-        private OFMISOfficesDto _officeDto;
         private readonly OFMISService _service;
 
         public FrmAddEditOfficeAccess(OfficeAccess officeAccess)

@@ -47,11 +47,13 @@
             this.txtCreator = new DevExpress.XtraEditors.TextEdit();
             this.txtDownloadURL = new DevExpress.XtraEditors.TextEdit();
             this.txtProductName = new DevExpress.XtraEditors.TextEdit();
-            this.picAppImage = new DevExpress.XtraEditors.PictureEdit();
             this.txtDescription = new DevExpress.XtraEditors.MemoEdit();
             this.deDatePublished = new DevExpress.XtraEditors.DateEdit();
             this.txtSolutionName = new DevExpress.XtraEditors.TextEdit();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.picAppImage = new DevExpress.XtraEditors.PictureEdit();
+            this.labelControl11 = new DevExpress.XtraEditors.LabelControl();
+            this.txtWebpage = new DevExpress.XtraEditors.TextEdit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtAbbrevName.Properties)).BeginInit();
@@ -60,11 +62,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCreator.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDownloadURL.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAppImage.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDatePublished.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDatePublished.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSolutionName.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAppImage.Properties)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWebpage.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // panelControl1
@@ -141,7 +144,7 @@
             // 
             // labelControl8
             // 
-            this.labelControl8.Location = new System.Drawing.Point(13, 232);
+            this.labelControl8.Location = new System.Drawing.Point(13, 254);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(53, 13);
             this.labelControl8.TabIndex = 18;
@@ -160,7 +163,7 @@
             this.btnSave.Appearance.BackColor = System.Drawing.Color.Turquoise;
             this.btnSave.Appearance.Options.UseBackColor = true;
             this.btnSave.ImageOptions.Image = global::PGISLauncher.Properties.Resources.save_16x16;
-            this.btnSave.Location = new System.Drawing.Point(415, 389);
+            this.btnSave.Location = new System.Drawing.Point(415, 411);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(110, 28);
             this.btnSave.TabIndex = 29;
@@ -172,7 +175,7 @@
             this.btnCancel.Appearance.BackColor = System.Drawing.Color.Turquoise;
             this.btnCancel.Appearance.Options.UseBackColor = true;
             this.btnCancel.ImageOptions.Image = global::PGISLauncher.Properties.Resources.close_16x16;
-            this.btnCancel.Location = new System.Drawing.Point(531, 389);
+            this.btnCancel.Location = new System.Drawing.Point(531, 411);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(110, 28);
             this.btnCancel.TabIndex = 28;
@@ -221,18 +224,9 @@
             this.txtProductName.Size = new System.Drawing.Size(331, 20);
             this.txtProductName.TabIndex = 20;
             // 
-            // picAppImage
-            // 
-            this.picAppImage.Location = new System.Drawing.Point(486, 54);
-            this.picAppImage.Name = "picAppImage";
-            this.picAppImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
-            this.picAppImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
-            this.picAppImage.Size = new System.Drawing.Size(155, 152);
-            this.picAppImage.TabIndex = 15;
-            // 
             // txtDescription
             // 
-            this.txtDescription.Location = new System.Drawing.Point(153, 230);
+            this.txtDescription.Location = new System.Drawing.Point(153, 252);
             this.txtDescription.Name = "txtDescription";
             this.txtDescription.Size = new System.Drawing.Size(488, 156);
             this.txtDescription.TabIndex = 27;
@@ -269,11 +263,37 @@
             this.labelControl10.TabIndex = 30;
             this.labelControl10.Text = "Download URL";
             // 
+            // picAppImage
+            // 
+            this.picAppImage.Location = new System.Drawing.Point(486, 54);
+            this.picAppImage.Name = "picAppImage";
+            this.picAppImage.Properties.ShowCameraMenuItem = DevExpress.XtraEditors.Controls.CameraMenuItemVisibility.Auto;
+            this.picAppImage.Properties.SizeMode = DevExpress.XtraEditors.Controls.PictureSizeMode.Squeeze;
+            this.picAppImage.Size = new System.Drawing.Size(155, 152);
+            this.picAppImage.TabIndex = 15;
+            // 
+            // labelControl11
+            // 
+            this.labelControl11.Location = new System.Drawing.Point(13, 233);
+            this.labelControl11.Name = "labelControl11";
+            this.labelControl11.Size = new System.Drawing.Size(46, 13);
+            this.labelControl11.TabIndex = 33;
+            this.labelControl11.Text = "Webpage";
+            // 
+            // txtWebpage
+            // 
+            this.txtWebpage.Location = new System.Drawing.Point(153, 230);
+            this.txtWebpage.Name = "txtWebpage";
+            this.txtWebpage.Size = new System.Drawing.Size(488, 20);
+            this.txtWebpage.TabIndex = 32;
+            // 
             // FrmAppSettings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(653, 422);
+            this.ClientSize = new System.Drawing.Size(653, 445);
+            this.Controls.Add(this.labelControl11);
+            this.Controls.Add(this.txtWebpage);
             this.Controls.Add(this.txtSolutionName);
             this.Controls.Add(this.labelControl10);
             this.Controls.Add(this.btnSave);
@@ -309,11 +329,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtCreator.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDownloadURL.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtProductName.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picAppImage.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtDescription.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDatePublished.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deDatePublished.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSolutionName.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAppImage.Properties)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.txtWebpage.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,7 +348,6 @@
         private DevExpress.XtraEditors.LabelControl labelControl3;
         private DevExpress.XtraEditors.LabelControl labelControl2;
         private DevExpress.XtraEditors.LabelControl labelControl5;
-        private DevExpress.XtraEditors.PictureEdit picAppImage;
         private DevExpress.XtraEditors.LabelControl labelControl6;
         private DevExpress.XtraEditors.LabelControl labelControl7;
         private DevExpress.XtraEditors.LabelControl labelControl8;
@@ -344,5 +364,8 @@
         private DevExpress.XtraEditors.DateEdit deDatePublished;
         private DevExpress.XtraEditors.TextEdit txtSolutionName;
         private DevExpress.XtraEditors.LabelControl labelControl10;
+        private DevExpress.XtraEditors.PictureEdit picAppImage;
+        private DevExpress.XtraEditors.LabelControl labelControl11;
+        private DevExpress.XtraEditors.TextEdit txtWebpage;
     }
 }
