@@ -1,11 +1,7 @@
-﻿using Helpers.Interface;
-using Helpers.Security;
-using Helpers.Service;
-using Helpers.Utility;
-using Model.Entities;
-using Model.Interface;
-using Model.Repository;
+﻿using PGISLauncher.API.Service;
 using PGISLauncher.Base;
+using PGISLauncher.Domain.Entities;
+using PGISLauncher.Interfaces;
 using System;
 using System.Threading.Tasks;
 
@@ -13,27 +9,25 @@ namespace PGISLauncher.ToolForms
 {
     public partial class FrmAppSettings : BaseForm
     {
-        private readonly InformationSystem _informationSystem;
-        private readonly FileService _fileService;
         private IControlMapper<InformationSystem> _controlMapper;
         private readonly ICryptography _cryptography;
-        public FrmAppSettings(InformationSystem informationSystem)
+        private readonly IInfoSystemService _infoSystemService;
+
+        private InformationSystem _informationSystem;
+        private readonly FileService _fileService;
+        public FrmAppSettings(IControlMapper<InformationSystem> controlMapper, ICryptography cryptography,
+            IInfoSystemService infoSystemService, FileService fileService)
         {
+            _controlMapper = controlMapper;
+            _cryptography = cryptography;
+            _fileService = fileService;
+            _infoSystemService = infoSystemService;
             InitializeComponent();
-            _informationSystem = informationSystem;
-            _fileService = new FileService();
-            _controlMapper = new ControlMapper<InformationSystem>();
-            _cryptography = new Cryptography();
-            _fileService = new FileService();
         }
 
-        public FrmAppSettings()
+        public void InitForm(InformationSystem informationSystem = null)
         {
-            InitializeComponent();
-            _fileService = new FileService();
-            _controlMapper = new ControlMapper<InformationSystem>();
-            _cryptography = new Cryptography();
-            _fileService = new FileService();
+            _informationSystem = informationSystem;
         }
 
         private async Task LoadDetails()
@@ -51,19 +45,17 @@ namespace PGISLauncher.ToolForms
 
         private async Task SaveNewApp()
         {
-            var unitOfWork = new UnitOfWork();
             var infoSystem = new InformationSystem();
-            await MapAndSave(infoSystem, unitOfWork);
+            await MapAndSave(infoSystem);
         }
 
         private async Task UpdateAppSettings()
         {
-            var unitOfWork = new UnitOfWork();
-            var infoSystem = await unitOfWork.InformationSystemRepo.FindAsync(x => x.Id == _informationSystem.Id);
-            await MapAndSave(infoSystem, unitOfWork);
+            var infoSystem = await _infoSystemService.GetByIdAsync(_informationSystem.Id);
+            await MapAndSave(infoSystem);
         }
 
-        private async Task MapAndSave(InformationSystem infoSystem, IUnitOfWork unitOfWork)
+        private async Task MapAndSave(InformationSystem infoSystem)
         {
             _controlMapper.MapToEntity(infoSystem, this);
 
@@ -74,8 +66,8 @@ namespace PGISLauncher.ToolForms
             infoSystem.IconPathSecurityStamp = securityStamp;
             await SaveImage(fileName);
 
-            if (_informationSystem == null) unitOfWork.InformationSystemRepo.Insert(infoSystem);
-            await unitOfWork.SaveAsync();
+            if (_informationSystem == null) await _infoSystemService.AddAsync(infoSystem);
+            await _infoSystemService.SaveChangesAsync();
             this.Close();
         }
 

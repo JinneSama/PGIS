@@ -1,43 +1,44 @@
-﻿using Helpers.Interface;
-using Helpers.Security;
-using Helpers.Utility;
-using Model.Enum;
-using Model.Interface;
-using Model.Repository;
-using Model.Service;
-using Model.Service.Dto;
-using Model.UserManager;
+﻿using DevExpress.ClipboardSource.SpreadsheetML;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
+using PGISLauncher.API.Common;
+using PGISLauncher.API.Service;
 using PGISLauncher.Base;
+using PGISLauncher.Core.Enums;
+using PGISLauncher.DataModels.DTO;
+using PGISLauncher.Interfaces;
+using System;
 using System.IO;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PGISLauncher.LoginForms
 {
-    public partial class FrmLogin : BaseForm, ISerializeData
+    public partial class FrmLogin : BaseForm
     {
-        private readonly OFMISService _service;
-        private readonly ICryptography _cryptography;
-        private readonly FrmMain _frmMain;
         private readonly ISerializeData _serializeDataHandler;
+        private readonly ICryptography _cryptography;
+        private readonly IServiceProvider _serviceProvider;
+        private readonly IAccesService _accesService;
+
+        private readonly OFMISService _ofmisService;
+        private readonly UserStore _userStore;
+        private readonly FrmMain _frmMain;
         private bool _isLogged = false;
-        public FrmLogin()
+        public bool FromMain { get; set; } = false;
+        public FrmLogin(ICryptography cryptography, ISerializeData serializeData, 
+            IServiceProvider serviceProvider, OFMISService ofmisService, IAccesService accesService,
+            UserStore userStore)
         {
+            _serviceProvider = serviceProvider; 
+            _ofmisService = ofmisService;
+            _cryptography = cryptography;
+            _serializeDataHandler = serializeData;
+            _accesService = accesService;
+            _userStore = userStore;
             InitializeComponent();
-            _service = new OFMISService();
-            _cryptography = new Cryptography();
-            _serializeDataHandler = new SerializeData();
             LoadCredentials();
-        }
-        public FrmLogin(FrmMain frmMain)
-        {
-            InitializeComponent();
-            _frmMain = frmMain;
-            _service = new OFMISService();
-            _cryptography = new Cryptography();
-            _serializeDataHandler = new SerializeData();
-            LoadCredentials();
+            if(FromMain) _frmMain = _serviceProvider.GetRequiredService<FrmMain>();
         }
         public async Task<bool> AttemptAuthWithJSONLogger()
         {
@@ -47,9 +48,8 @@ namespace PGISLauncher.LoginForms
             string json = File.ReadAllText(filePath);
             var credentials = JsonConvert.DeserializeObject<ArgumentCredentialsDto>(json);
 
-            var ofmisUser = await _service.GetUser(credentials.Username);
-            IUnitOfWork unitOfWork = new UnitOfWork();
-            var user = await unitOfWork.UserAccessRepo.FindAsync(x => x.OFMISId == ofmisUser.OFMISId);
+            var ofmisUser = await _ofmisService.GetUser(credentials.Username);
+            var user = await _accesService.UserAccessService.GetByFilterAsync(x => x.OFMISId == ofmisUser.OFMISId);
 
             if (user == null) return false;
             UserStore userStore = new UserStore(credentials.Username, credentials.Password, ofmisUser, user.UserRole);
@@ -57,7 +57,7 @@ namespace PGISLauncher.LoginForms
         }
         private async Task<OFMISUsersDto> AuthenticateUser(string username, string password)
         {
-            var ofmisUser = await _service.GetUser(username);
+            var ofmisUser = await _ofmisService.GetUser(username);
             if (ofmisUser == null) return null;
 
             var decryptPass = _cryptography.Decrypt(ofmisUser.PasswordHash, ofmisUser.SecurityStamp);
@@ -86,14 +86,13 @@ namespace PGISLauncher.LoginForms
         private void GenerateJSONLogger()
         {
             string filePath = Path.Combine(Path.GetTempPath(), "credentials.json");
-            string json = Serialize(Model.UserManager.UserStore.Credentials);
+            string json = _serializeDataHandler.Serialize(_userStore.Credentials);
             File.WriteAllText(filePath, json);
         }
 
         private async Task<UserRole> PointToSystemAccount(string OFMISId)
         {
-            IUnitOfWork unitOfWork = new UnitOfWork();
-            var user = await unitOfWork.UserAccessRepo.FindAsync(x => x.OFMISId == OFMISId);
+            var user = await _accesService.UserAccessService.GetByFilterAsync(x => x.OFMISId == OFMISId);
             if (user == null) return UserRole.user;
             else return user.UserRole;
         }
@@ -126,11 +125,6 @@ namespace PGISLauncher.LoginForms
         private void FrmLogin_FormClosing(object sender, System.Windows.Forms.FormClosingEventArgs e)
         {
             if (!_isLogged) Application.Exit();
-        }
-
-        public string Serialize(object data)
-        {
-            return _serializeDataHandler.Serialize(data);
         }
     }
 }

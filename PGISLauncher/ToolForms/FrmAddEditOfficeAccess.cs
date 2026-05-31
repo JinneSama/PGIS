@@ -1,42 +1,34 @@
-﻿using DevExpress.XtraEditors;
-using Model.Entities;
-using Model.Enum;
-using Model.Interface;
-using Model.Manager;
-using Model.Repository;
-using Model.Service;
-using Model.Service.Dto;
+﻿using PGISLauncher.API.Service;
+using PGISLauncher.Domain.Entities;
+using PGISLauncher.Interfaces;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace PGISLauncher.ToolForms
 {
     public partial class FrmAddEditOfficeAccess : DevExpress.XtraEditors.XtraForm
     {
-        private readonly OfficeAccess _officeAccess;
-        private readonly OFMISService _service;
+        private readonly IInfoSystemService _infoSystemService;
+        private readonly IAccesService _accesService;
+        private OfficeAccess _officeAccess;
+        private readonly OFMISService _ofmisService;
 
-        public FrmAddEditOfficeAccess(OfficeAccess officeAccess)
+        public FrmAddEditOfficeAccess(OFMISService ofmisService, IAccesService accesService)
         {
+            _ofmisService = ofmisService;
+            _accesService = accesService;
             InitializeComponent();
-            _officeAccess = officeAccess;
-            _service = new OFMISService();
             LoadDropdowns();
-            LoadDetails();
         }
 
-        public FrmAddEditOfficeAccess()
+        public void InitForm(OfficeAccess officeAccess = null)
         {
-            InitializeComponent();
-            _service = new OFMISService();
-            LoadDropdowns();
+            _officeAccess = officeAccess;
+            if(officeAccess != null)
+                LoadDetails();
         }
 
         private void LoadDetails()
@@ -46,11 +38,10 @@ namespace PGISLauncher.ToolForms
         }
         private async void LoadDropdowns()
         {
-            IUnitOfWork unitOfWork = new UnitOfWork();
-            var infoSystems = unitOfWork.InformationSystemRepo.GetAll();
+            var infoSystems = _infoSystemService.GetAll();
             ccbApps.Properties.DataSource = infoSystems.ToList();
 
-            var offices = await _service.GetOffices();
+            var offices = await _ofmisService.GetOffices();
             lueOffice.Properties.DataSource = offices.ToList();
         }
 
@@ -69,31 +60,29 @@ namespace PGISLauncher.ToolForms
 
         private async Task UpdateOffice()
         {
-            IUnitOfWork unitOfWork = new UnitOfWork();
-            var office = await unitOfWork.OfficeAccessRepo.FindAsync(x => x.Id == _officeAccess.Id);
+            var office = await _accesService.OfficeAccessService.GetByIdAsync(_officeAccess.Id);
 
-            await AddApps(office, unitOfWork);
-            await unitOfWork.SaveAsync();
+            await AddApps(office);
+            await _accesService.OfficeAccessService.SaveChangesAsync();
         }
 
         private async Task SaveNewOffice()
         {
-            IUnitOfWork unitOfWork = new UnitOfWork();
             var office = new OfficeAccess();
 
-            await AddApps(office, unitOfWork);
+            await AddApps(office);
             office.OfficeId = (int?)lueOffice.EditValue;
-            unitOfWork.OfficeAccessRepo.Insert(office);
-            await unitOfWork.SaveAsync();
+            await _accesService.OfficeAccessService.AddAsync(office);
+            await _accesService.OfficeAccessService.SaveChangesAsync();
         }
 
-        private async Task AddApps(OfficeAccess office, IUnitOfWork unitOfWork)
+        private async Task AddApps(OfficeAccess office)
         {
             var apps = ccbApps.EditValue.ToString().Split(',');
             foreach (var app in apps)
             {
                 int convertedId = Convert.ToInt32(app);
-                var selectedApp = await unitOfWork.InformationSystemRepo.FindAsync(x => x.Id == convertedId);
+                var selectedApp = await _infoSystemService.GetByIdAsync(convertedId);
                 office.InformationSystems.Add(selectedApp);
             }
         }

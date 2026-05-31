@@ -1,55 +1,60 @@
-﻿using Helpers.Interface;
-using Helpers.Utility;
-using Model.Entities;
-using Model.Enum;
-using Model.Interface;
-using Model.Manager;
-using Model.Repository;
-using Model.Service.Dto;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PGISLauncher.API.Manager;
 using PGISLauncher.Base;
+using PGISLauncher.Core.Enums;
+using PGISLauncher.DataModels.DTO;
+using PGISLauncher.Domain.Entities;
+using PGISLauncher.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using static DevExpress.XtraEditors.Mask.MaskSettings;
 
 namespace PGISLauncher.ToolForms
 {
     public partial class FrmAddEditUserAccess : BaseForm
     {
-        private readonly UserAccess _userAccess;
+        private readonly IServiceProvider _serviceProvider;
+        private readonly IInfoSystemService _infoSystemService;
+        private readonly IAccesService _accessService;
+        private readonly IControlMapper<OFMISUsersDto> _ofmisUsersMapper;
+        private UserAccess _userAccess;
         private OFMISUsersDto _usersDto;
-        public FrmAddEditUserAccess(UserAccess userAccess)
+        public FrmAddEditUserAccess(IServiceProvider serviceProvider, IInfoSystemService infoSystemService,
+            IControlMapper<OFMISUsersDto> ofmisUsersMapper, IAccesService accessService)
         {
+            _serviceProvider = serviceProvider;
+            _infoSystemService = infoSystemService;
+            _ofmisUsersMapper = ofmisUsersMapper;
+            _accessService = accessService;
             InitializeComponent();
-            _userAccess = userAccess;
             LoadDropdowns();
-            LoadDetails();
         }
-        public FrmAddEditUserAccess()
+
+        public void InitForm(UserAccess userAccess = null)
         {
-            InitializeComponent();
-            LoadDropdowns();
+            if(userAccess != null)
+                LoadDetails();
         }
 
         private void LoadDetails()
         {
             btnOFMIS.Enabled = false;
-            var user = OFMISManager.GetUser(_userAccess.OFMISId);
+            var user = _serviceProvider.GetRequiredService<OFMISManager>().GetUser(_userAccess.OFMISId);
             SetOFMISUser(user);
             lueRole.EditValue = _userAccess.UserRole;
-            ccbApps.EditValue = string.Join(",", _userAccess.InformationSystems?.Select(s => s.Id.ToString()) ?? new List<string>());
+            ccbApps.EditValue = string.Join(",", _userAccess.InformationSystems?
+                .Select(s => s.Id.ToString()) ?? new List<string>());
         }
         private void LoadDropdowns()
         {
-            IUnitOfWork unitOfWork = new UnitOfWork();
             lueRole.Properties.DataSource = Enum.GetValues(typeof(UserRole)).Cast<UserRole>().ToList()
                 .Select(x => new
                 {
                     Value = x,
                 });
 
-            var infoSystems = unitOfWork.InformationSystemRepo.GetAll();
+            var infoSystems = _infoSystemService.GetAll();
             ccbApps.Properties.DataSource = infoSystems.ToList();
         }
 
@@ -60,7 +65,7 @@ namespace PGISLauncher.ToolForms
 
         private void btnOFMIS_Click(object sender, EventArgs e)
         {
-            var frm = new FrmOFMISUsers();
+            var frm = _serviceProvider.GetRequiredService<FrmOFMISUsers>();
             frm.ShowDialog();
 
             if (frm.OFMISUser == null) return;
@@ -70,8 +75,7 @@ namespace PGISLauncher.ToolForms
         private void SetOFMISUser(OFMISUsersDto oFMISUser)
         {
             _usersDto = oFMISUser;
-            IControlMapper<OFMISUsersDto> controlMapper = new ControlMapper<OFMISUsersDto>();
-            controlMapper.MapToControls(_usersDto, this);
+            _ofmisUsersMapper.MapToControls(_usersDto, this);
         }
 
         private async void btnSave_Click(object sender, EventArgs e)
@@ -84,35 +88,33 @@ namespace PGISLauncher.ToolForms
 
         private async Task UpdateUser()
         {
-            IUnitOfWork unitOfWork = new UnitOfWork();
-            var user = await unitOfWork.UserAccessRepo.FindAsync(x => x.Id == _userAccess.Id);
+            var user = await _accessService.UserAccessService.GetByFilterAsync(x => x.Id == _userAccess.Id);
             user.UserRole = (UserRole)lueRole.EditValue;
 
-            await AddApps(user, unitOfWork);
-            await unitOfWork.SaveAsync();
+            await AddApps(user);
+            await _accessService.UserAccessService.SaveChangesAsync();
         }
 
-        private async Task AddApps(UserAccess user, IUnitOfWork unitOfWork)
+        private async Task AddApps(UserAccess user)
         {
             var apps = ccbApps.EditValue.ToString().Split(',');
             foreach (var app in apps)
             {
                 int convertedId = Convert.ToInt32(app);
-                var selectedApp = await unitOfWork.InformationSystemRepo.FindAsync(x => x.Id == convertedId);
+                var selectedApp = await _infoSystemService.GetByFilterAsync(x => x.Id == convertedId);
                 user.InformationSystems.Add(selectedApp);
             }
         }
 
         private async Task SaveNewUser()
         {
-            IUnitOfWork unitOfWork = new UnitOfWork();
             var user = new UserAccess();
             user.OFMISId = _usersDto.OFMISId;
             user.UserRole = (UserRole)lueRole.EditValue;
 
-            await AddApps(user, unitOfWork);
-            unitOfWork.UserAccessRepo.Insert(user);
-            await unitOfWork.SaveAsync();
+            await AddApps(user);
+            await _accessService.UserAccessService.AddAsync(user);
+            await _accessService.UserAccessService.SaveChangesAsync();
         }
     }
 }
