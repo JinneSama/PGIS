@@ -1,8 +1,8 @@
-﻿using Model.Interface;
-using Model.Repository;
-using Model.Service;
-using Model.Service.Dto;
-using Model.ViewModel;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PGISLauncher.API.Service;
+using PGISLauncher.DataModels;
+using PGISLauncher.Interfaces;
+using System;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -10,18 +10,22 @@ namespace PGISLauncher.ToolForms
 {
     public partial class FrmOfficeAccess : DevExpress.XtraEditors.XtraForm
     {
-        private readonly OFMISService _service;
-        public FrmOfficeAccess()
+        private readonly IAccesService _accessService;
+        private readonly IServiceProvider _serviceProvider;
+        private readonly OFMISService _ofmisService;
+        public FrmOfficeAccess(OFMISService ofmisService, IAccesService accesService,
+            IServiceProvider serviceProvider)
         {
+            _ofmisService = ofmisService;
+            _accessService = accesService;
+            _serviceProvider = serviceProvider;
             InitializeComponent();
-            _service = new OFMISService();
         }
 
         private async Task LoadData()
         {
-            IUnitOfWork unitOfWork = new UnitOfWork();
-            var offices = await _service.GetOffices();
-            var data = unitOfWork.OfficeAccessRepo.GetAll().ToList().Select(x => new OfficeAccessViewModel
+            var offices = await _ofmisService.GetOffices();
+            var data = _accessService.OfficeAccessService.GetAll().ToList().Select(x => new OfficeAccessViewModel
             {
                 Id = x.Id,
                 OfficeId = x.OfficeId,
@@ -34,9 +38,9 @@ namespace PGISLauncher.ToolForms
         private async void btnEdit_Click(object sender, System.EventArgs e)
         {
             var row = (OfficeAccessViewModel)gridUserAccess.GetFocusedRow();
-            IUnitOfWork unitOfWork = new UnitOfWork();
-            var res = await unitOfWork.OfficeAccessRepo.FindAsync(x => x.Id == row.Id);
-            var frm = new FrmAddEditOfficeAccess(res);
+            var res = await _accessService.OfficeAccessService.GetByIdAsync(row.Id);
+            var frm = _serviceProvider.GetRequiredService<FrmAddEditOfficeAccess>();
+            frm.InitForm(res);
             frm.ShowDialog();
 
             await LoadData();
@@ -44,7 +48,7 @@ namespace PGISLauncher.ToolForms
 
         private async void btnAddNewOffice_Click(object sender, System.EventArgs e)
         {
-            var frm = new FrmAddEditOfficeAccess();
+            var frm = _serviceProvider.GetRequiredService<FrmAddEditOfficeAccess>();
             frm.ShowDialog();
 
             await LoadData();

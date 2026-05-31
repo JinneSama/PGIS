@@ -1,16 +1,17 @@
 ﻿using DevExpress.XtraEditors;
-using Helpers.Interface;
-using Helpers.Utility;
-using Helpers.Utility.Model;
-using Model.Manager;
-using Model.Repository;
-using Model.UserManager;
-using Model.ViewModel;
+using Microsoft.Extensions.DependencyInjection;
+using PGISLauncher.API.Common;
+using PGISLauncher.API.Manager;
 using PGISLauncher.Base;
+using PGISLauncher.Core.Enums;
 using PGISLauncher.DashboardForms;
+using PGISLauncher.DataModels;
+using PGISLauncher.Interfaces;
 using PGISLauncher.LoginForms;
 using PGISLauncher.Properties;
 using PGISLauncher.ToolForms;
+using PGISLauncher.Utility;
+using System;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,16 +21,23 @@ namespace PGISLauncher
 {
     public partial class FrmMain : BaseForm
     {
+        private readonly IServiceProvider _serviceProvider;
         private readonly ILauncher _launcher;
-        private DirectoryData _directoryData;
         private readonly IUCManager<UCSystemDetails> _ucManager;
+
+        private readonly UserStore _userStore;
+        private DirectoryData _directoryData;
         private bool _logout = false;
         private bool _fullExit = false;
-        public FrmMain()
+        public FrmMain(ILauncher launcher, IServiceProvider serviceProvider, UserStore userStore,
+            IUCManager<UCSystemDetails> ucManager)
         {
             InitializeComponent();
-            _launcher = new Launcher();
-            _ucManager = new UCManager<UCSystemDetails>(panelDetails);
+            _serviceProvider = serviceProvider;
+            _launcher = launcher;
+            _ucManager = ucManager;
+            _ucManager.SetControls(panelDetails);
+            _userStore = userStore;
         }
 
         private void SetAdminCreds(bool v)
@@ -43,20 +51,19 @@ namespace PGISLauncher
         public async Task LoadData()
         {
             int rowHandle = gridApps.FocusedRowHandle;
-            if (UserStore.UserRole == Model.Enum.UserRole.user) SetAdminCreds(false);
+            if (_userStore.UserRole == UserRole.user) SetAdminCreds(false);
             else SetAdminCreds(true);
 
-            lblUsername.Text = UserStore.OFMISUserDto?.Username;
-            UserAppManager.InitManager();
-            var unitOfWork = new UnitOfWork();
+            lblUsername.Text = _userStore.OFMISUserDto?.Username;
+            var userAppManager = _serviceProvider.GetRequiredService<UserAppManager>();
 
-            var userApps = await UserAppManager.GetUserApps(UserStore.OFMISUserDto);
+            var userApps = await userAppManager.GetUserApps(_userStore.OFMISUserDto);
             var data = userApps.Select(x => new SystemInfoViewModel{ SystemInformation = x }).ToList();
             foreach (var item in data)
             {
                 _directoryData = _launcher.IsShortcutPresentAsync(item.SystemInformation.PublisherName, item.SystemInformation.ProductName);
                 if (_directoryData == null) item.AppImage = Resources.PGNV;
-                else item.AppImage = ClickOnceIcon.GetIcon(_directoryData.AppPath);
+                else item.AppImage = _serviceProvider.GetRequiredService<ClickOnceIcon>().GetIcon(_directoryData.AppPath);
                 item.InstallInfo = _directoryData == null ? "NOT INSTALLED" : "";
             }
             gcApps.DataSource = data.ToList();
@@ -78,7 +85,8 @@ namespace PGISLauncher
         private async void btnAppSettings_Click(object sender, System.EventArgs e)
         {
             var row = (SystemInfoViewModel)gridApps.GetFocusedRow();
-            var frm = new FrmAppSettings(row.SystemInformation);
+            var frm = _serviceProvider.GetRequiredService<FrmAppSettings>();
+            frm.InitForm(row.SystemInformation);
             frm.ShowDialog();
 
             await LoadData();
@@ -86,7 +94,7 @@ namespace PGISLauncher
 
         private async void FrmMain_Load(object sender, System.EventArgs e)
         {
-            var frm = new FrmLogin();
+            var frm = _serviceProvider.GetRequiredService<FrmLogin>();
             if (await frm.AttemptAuthWithJSONLogger())
             { 
                 await LoadData();
@@ -99,7 +107,7 @@ namespace PGISLauncher
 
         private async void btnAddApp_Click(object sender, System.EventArgs e)
         {
-            var frm = new FrmAppSettings();
+            var frm = _serviceProvider.GetRequiredService<FrmAppSettings>();
             frm.ShowDialog();
 
             await LoadData();
@@ -107,7 +115,7 @@ namespace PGISLauncher
 
         private async void btnDefaultApps_Click(object sender, System.EventArgs e)
         {
-            var frm = new FrmDefaultApps();
+            var frm = _serviceProvider.GetRequiredService<FrmDefaultApps>();
             frm.ShowDialog();
 
             await LoadData();
@@ -115,7 +123,7 @@ namespace PGISLauncher
 
         private async void btnUserAccess_Click(object sender, System.EventArgs e)
         {
-            var frm = new FrmUserAccess();
+            var frm = _serviceProvider.GetRequiredService<FrmUserAccess>();
             frm.ShowDialog();
 
             await LoadData();
@@ -146,7 +154,8 @@ namespace PGISLauncher
             _logout = false;
             string filePath = Path.Combine(Path.GetTempPath(), "credentials.json");
             File.Delete(filePath);
-            var frm = new FrmLogin(this);
+            var frm = _serviceProvider.GetRequiredService<FrmLogin>();
+            frm.FromMain = true;
             frm.ShowDialog();
         }
 
@@ -181,7 +190,7 @@ namespace PGISLauncher
 
         private async void btnOfficeAccess_Click(object sender, System.EventArgs e)
         {
-            var frm = new FrmOfficeAccess();
+            var frm = _serviceProvider.GetRequiredService<FrmOfficeAccess>();
             frm.ShowDialog();
 
             await LoadData();

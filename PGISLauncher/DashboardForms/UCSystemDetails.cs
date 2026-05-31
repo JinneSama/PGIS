@@ -1,51 +1,64 @@
-﻿using Helpers.Interface;
-using Helpers.Utility;
-using Helpers.Utility.Model;
-using System.Net;
-using System.Threading.Tasks;
-using DevExpress.XtraEditors;
-using Model.ViewModel;
+﻿using DevExpress.XtraEditors;
+using Microsoft.Extensions.DependencyInjection;
+using PGISLauncher.API.Common;
+using PGISLauncher.API.Service;
+using PGISLauncher.Core.Common;
+using PGISLauncher.Core.Enums;
+using PGISLauncher.DataModels;
+using PGISLauncher.Domain.Entities;
+using PGISLauncher.Interfaces;
 using System;
 using System.Diagnostics;
-using Model.Entities;
-using Helpers.Service;
 using System.Drawing;
-using Helpers.Enum;
-using Model.Enum;
-using Model.Interface;
-using Model.Repository;
-using Model.UserManager;
+using System.Net;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PGISLauncher.DashboardForms
 {
     public partial class UCSystemDetails : XtraUserControl, ILauncher
     {
+        private readonly IControlMapper<InformationSystem> _infoSystemMapper;
         private readonly IInstaller _installerHandler;
         private readonly ILauncher _launcherHandler;
-        private readonly SystemInfoViewModel _systemInformation;
+        private readonly IServiceProvider _serviceProvider;
+        private readonly IAccesService _accessService;
+
+        private readonly UserStore _userStore;
         private FileService _fileService;
+
+        private SystemInfoViewModel _systemInformation;
         private DirectoryData _directoryData;
         private readonly Control _frmMain;
 
-        public UCSystemDetails(SystemInfoViewModel systemInformation, Control frmMain)
+        public UCSystemDetails(IControlMapper<InformationSystem> infoSystemMapper, IInstaller installerHandler,
+            ILauncher launcherHandler, IServiceProvider serviceProvider, FileService fileService,
+            IAccesService accessService, UserStore userStore)
         {
+            _installerHandler = installerHandler;
+            _installerHandler.InitInstaller(DownloadFileCompleted, DownloadProgressChanged);
+            _launcherHandler = launcherHandler;
+            InitLauncher(UpdateStatus, UpdateUninstallStatus);
+            _fileService = fileService; 
+            _serviceProvider = serviceProvider;
+            _infoSystemMapper = infoSystemMapper;
+            _accessService = accessService; 
+            _userStore = userStore;
             InitializeComponent();
-            _installerHandler = new Installer(DownloadFileCompleted, DownloadProgressChanged);
-            _launcherHandler = new Launcher(UpdateStatus, UpdateUninstallStatus);
-            _systemInformation = systemInformation;
-            _fileService = new FileService(); 
-            _frmMain = frmMain;
+            _frmMain = _serviceProvider.GetRequiredService<FrmMain>();
         }
 
+        public void InitUC(SystemInfoViewModel systemInformation)
+        {
+            _systemInformation = systemInformation;
+        }
         private async Task LoadData()
         {
             _directoryData = IsShortcutPresentAsync(_systemInformation.SystemInformation.PublisherName, _systemInformation.SystemInformation.ProductName);
             if (_directoryData != null) SetDownLoadInstall(false);
             else SetDownLoadInstall(true);
 
-            IControlMapper<InformationSystem> mapper = new ControlMapper<InformationSystem>();
-            mapper.MapToControls(_systemInformation.SystemInformation, this, panelTitle);
+            _infoSystemMapper.MapToControls(_systemInformation.SystemInformation, this, panelTitle);
             //picImage.Image = await _fileService.DownloadFile(_systemInformation.SystemInformation.IconPath);
             await TrackStatus(_systemInformation.SystemInformation.SolutionName);
         }
@@ -127,7 +140,7 @@ namespace PGISLauncher.DashboardForms
             if (btnOpen.InvokeRequired)
                 btnOpen.BeginInvoke(new Action(() =>
                 {
-                    btnOpen.Text = EnumHelper.GetEnumDescription(status);
+                    btnOpen.Text = _serviceProvider.GetRequiredService<EnumHelper>().GetEnumDescription(status);
                     btnOpen.Appearance.BackColor = Color.Gray;
                     if (status == ProcessStatus.Open || status == ProcessStatus.Closed)
                         btnOpen.Appearance.BackColor = Color.Lime;
@@ -136,20 +149,19 @@ namespace PGISLauncher.DashboardForms
 
         private async Task RecordAppUsage(AppAccessType status)
         {
-            IUnitOfWork unitOfWork = new UnitOfWork();
-            var user = await unitOfWork.UserAccessRepo.FindAsync(x => x.OFMISId == UserStore.OFMISUserDto.OFMISId);
+            var user = await _accessService.UserAccessService.GetByFilterAsync(x => x.OFMISId == _userStore.OFMISUserDto.OFMISId);
             var usage = new AppUsage
             {
                 AccessedDate = DateTime.Now,
                 AccessType = status,
                 SecurityStamp = Guid.NewGuid().ToString(),
                 InfoSystemId = _systemInformation.SystemInformation.Id,
-                OFMISId = UserStore.OFMISUserDto.OFMISId,
+                OFMISId = _userStore.OFMISUserDto.OFMISId,
                 UserAccessId = user?.Id
             };
 
-            unitOfWork.AppUsageRepo.Insert(usage);
-            await unitOfWork.SaveAsync();
+            await _accessService.AppUsageService.AddAsync(usage);
+            await _accessService.AppUsageService.SaveChangesAsync();
         }
 
         public async Task TrackStatus(string processName)
@@ -191,6 +203,11 @@ namespace PGISLauncher.DashboardForms
         private void txtWebpage_Click(object sender, EventArgs e)
         {
             Process.Start(txtWebpage.Text);
+        }
+
+        public void InitLauncher(Action<ProcessStatus> statusUpdateCallback = null, Action<bool> uninstallStatusCallBack = null)
+        {
+            _launcherHandler.InitLauncher(statusUpdateCallback, uninstallStatusCallBack);
         }
     }
 }

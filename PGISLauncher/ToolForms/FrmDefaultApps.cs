@@ -1,34 +1,33 @@
-﻿using Model.Entities;
-using Model.Interface;
-using Model.Repository;
-using PGISLauncher.Base;
+﻿using PGISLauncher.Base;
+using PGISLauncher.Domain.Entities;
+using PGISLauncher.Interfaces;
 using System.Linq;
 
 namespace PGISLauncher.ToolForms
 {
     public partial class FrmDefaultApps : BaseForm
     {
-        public FrmDefaultApps()
+        private readonly IInfoSystemService _infoSystemService;
+        public FrmDefaultApps(IInfoSystemService infoSystemService)
         {
+            _infoSystemService = infoSystemService;
             InitializeComponent();
             LoadData();
         }
 
         private void LoadData()
         {
-            IUnitOfWork unitOfWork = new UnitOfWork();
-            var data = unitOfWork.InformationSystemRepo.GetAll().ToList();
+            var data = _infoSystemService.GetAll().ToList();
             gcDefaultApps.DataSource = data;
         }
 
         private async void gridDefaultApps_RowUpdated(object sender, DevExpress.XtraGrid.Views.Base.RowObjectEventArgs e)
         {
-            IUnitOfWork unitOfWork = new UnitOfWork();
             var row = (InformationSystem)gridDefaultApps.GetFocusedRow();
-            var infoSystem = await unitOfWork.InformationSystemRepo.FindAsync(x => x.Id == row.Id);
+            var infoSystem = await _infoSystemService.GetByIdAsync(row.Id);
             infoSystem.IsDefaultApp = row.IsDefaultApp;
 
-            await unitOfWork.SaveAsync();
+            await _infoSystemService.SaveChangesAsync();
         }
     }
 }

@@ -1,11 +1,13 @@
-﻿using Helpers.Interface;
-using Helpers.Security;
-using Helpers.Update;
-using Helpers.Utility;
+﻿using Microsoft.Extensions.DependencyInjection;
+using PGISLauncher.Interfaces;
 using PGISLauncher.ToolForms;
+using PGISLauncher.Utility;
 using System;
-using System.IO;
 using System.Windows.Forms;
+using System.Deployment.Application;
+using PGISLauncher.Utility.Update;
+using PGISLauncher.API;
+using PGISLauncher.Services;
 
 namespace PGISLauncher
 {
@@ -17,22 +19,30 @@ namespace PGISLauncher
         [STAThread]
         static void Main()
         {
-            _instanceGuard = new SingleInstance("PGIS", ShowExistingForm);
-            _startup = new Startup();
-
-            _startup.CheckAndSetStartup();
-            if (!_instanceGuard.IsSingleInstance())
+            var services = new ServiceCollection();
+            using (ServiceProvider serviceProvider = services.BuildServiceProvider())
             {
-                _instanceGuard.ShowExistingInstance();
-                return;
+                UtilitiesDependencyRegistrar.RegisterServices(services);
+                ServicesDependencyRegistrar.RegisterServices(services);
+                APIDependencyRegistrar.RegisterServices(services);
+                _instanceGuard = serviceProvider.GetRequiredService<ISingleInstance>();
+                _instanceGuard.Init("PGIS", ShowExistingForm);
+
+                _startup = serviceProvider.GetRequiredService<IStartup>();
+                _startup.CheckAndSetStartup();
+                if (!_instanceGuard.IsSingleInstance())
+                {
+                    _instanceGuard.ShowExistingInstance();
+                    return;
+                }
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+                ForceUserUpdate();
+                _frmMain = serviceProvider.GetService<FrmMain>();
+
+                Application.Run(_frmMain);
             }
-
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            ForceUserUpdate();
-            _frmMain = new FrmMain();
-
-            Application.Run(_frmMain);
         }
 
         public static void ShowExistingForm()
@@ -44,9 +54,9 @@ namespace PGISLauncher
 
         private static void ForceUserUpdate()
         {
-            if (System.Deployment.Application.ApplicationDeployment.IsNetworkDeployed)
+            if (ApplicationDeployment.IsNetworkDeployed)
             {
-                System.Deployment.Application.ApplicationDeployment cd = System.Deployment.Application.ApplicationDeployment.CurrentDeployment;
+                ApplicationDeployment cd = ApplicationDeployment.CurrentDeployment;
                 string version = cd.CurrentVersion.ToString();
                 if (UpdateHelpers.InstallUpdateSyncWithInfo())
                 {

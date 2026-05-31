@@ -55,29 +55,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Enum\EnumHelper.cs" />
-    <Compile Include="Enum\ProcessStatus.cs" />
-    <Compile Include="Interface\IControlMapper.cs" />
-    <Compile Include="Interface\IInstaller.cs" />
-    <Compile Include="Interface\ILauncher.cs" />
-    <Compile Include="Interface\ISerializeData.cs" />
-    <Compile Include="Interface\ISingleInstance.cs" />
-    <Compile Include="Interface\IStartup.cs" />
-    <Compile Include="Interface\ITokenCache.cs" />
-    <Compile Include="Interface\IUCManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Interface\ICryptography.cs" />
     <Compile Include="Security\Cryptography.cs" />
     <Compile Include="Service\AuthBackend.cs" />
     <Compile Include="Service\FileService.cs" />
-    <Compile Include="Service\Models\LoginRequest.cs" />
-    <Compile Include="Service\Models\TokenResponse.cs" />
     <Compile Include="Service\TokenCache.cs" />
     <Compile Include="Update\UpdateHelpers.cs" />
     <Compile Include="Utility\ClickOnceIcon.cs" />
     <Compile Include="Utility\ControlMapper.cs" />
     <Compile Include="Utility\Installer.cs" />
     <Compile Include="Utility\Launcher.cs" />
-    <Compile Include="Utility\Model\DirectoryData.cs" />
     <Compile Include="Utility\SerializeData.cs" />
     <Compile Include="Utility\SingleInstance.cs" />
     <Compile Include="Utility\Startup.cs" />
@@ -86,6 +73,10 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Interface\" />
+    <Folder Include="Service\Models\" />
+    <Folder Include="Utility\Model\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
